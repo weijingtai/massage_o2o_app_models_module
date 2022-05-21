@@ -1,4 +1,4 @@
-import 'package:massage_o2o_app_models_module/massage_o2o_app_models_module.dart';
+import 'package:massage_o2o_app_models_module/enums.dart';
 
 void main() {
   // var awesome = Awesome();

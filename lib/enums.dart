@@ -4,4 +4,4 @@
 library massage_o2o_app_models_module;
 
 export 'src/enums/enums.dart';
-export 'src/models/models.dart';
+
