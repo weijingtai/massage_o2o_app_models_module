@@ -17,6 +17,7 @@
 // export 'subscribe_user_model.dart';
 // export 'online_master_user_model.dart';
 
+export 'appointment_service_base_model.dart';
 export 'address.dart';
 export 'appointment_model.dart';
 export 'assign_model.dart';
