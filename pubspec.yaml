@@ -1,0 +1,21 @@
+name: massage_o2o_app_models_module
+description: MassageO2OApp Models Module
+version: 1.0.0
+# homepage: https://www.example.com
+
+environment:
+  sdk: '>=2.17.0 <3.0.0'
+
+dependencies:
+  json_annotation: ^4.5.0
+  json_serializable: ^6.2.0
+
+  # tools
+  equatable: ^2.0.3
+  intl: ^0.17.0
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.16.0
+  build_runner: ^2.0.0
+

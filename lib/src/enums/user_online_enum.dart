@@ -1,0 +1,4 @@
+
+enum UserOnlineStatusEnum{
+  ONLINE,OFFLINE,LEAVING,LOGGED_OUT
+}
