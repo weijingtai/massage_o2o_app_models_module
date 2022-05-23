@@ -55,7 +55,8 @@ class ServiceModel {
   late List<ServiceDurationOperationUnit>? _durationUpdateList;
 
   @JsonKey(includeIfNull: false)
-  AssignModel? assign;
+  // AssignModel? assign;
+  String? assignGuid;
 
   ServiceModel(this.guid,{
     required this.seqInOrder,
@@ -70,7 +71,7 @@ class ServiceModel {
     this.deletedAt,
     this.masterUid,
     this.completedSeconds = 0,
-    this.assign,
+    this.assignGuid,
     List<ServiceEventUnit>? eventList,
     List<ServiceStateUnit>? stateList,
     List<ServiceDurationOperationUnit>? durationUpdateList,
