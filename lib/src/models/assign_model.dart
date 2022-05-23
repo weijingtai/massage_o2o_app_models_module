@@ -10,26 +10,37 @@ part 'assign_model.g.dart';
 @JsonSerializable()
 class AssignModel extends Equatable {
 
-  late String guid;
-  late String serviceGuid;
-  late String orderGuid;
+  // assign's unique id
+  String guid;
+  // service which is assigned for
+  String serviceGuid;
+  // master which is assigned for
+  String orderGuid;
 
-  late String masterUid;
-  late String masterDisplayName;
-  late String masterImageUrl;
+  // assign received masterUser
+  String masterUid;
 
-  late String hostUid;
+  String hostUid;
+  String senderUid; // Usually is hostUid
 
-  late AssignStateEnum state;
-  late int assignTimeoutSeconds;
-  late int deliverTimeoutSeconds;
+  AssignStateEnum state;
+  // this field is used to store the order's status when the assign is created and send out.
+  OrderStatusEnum currentOrderStatus;
+
+  // after this timeout seconds, this assign will be expired
+  int assignTimeoutSeconds;
+  // after this timeout seconds, "UI" or "UE" layer should notify "hostUser" to re-send assign
+  int deliverTimeoutSeconds;
+
 
   @JsonKey(includeIfNull: false)
   DateTime? assignAt;
+
+  // masterUser should immediately send this assign to hostUser when he/she receive this assign
   @JsonKey(includeIfNull: false)
   DateTime? deliveredAt;
-  // @JsonKey(includeIfNull: false)
-  // DateTime? timeoutAt;
+
+
   DateTime? get assignTimeoutAt{
     if (assignAt != null){
       return assignAt?.add(Duration(seconds: assignTimeoutSeconds));
@@ -46,9 +57,10 @@ class AssignModel extends Equatable {
     return assignTimeoutSeconds;
   }
   @JsonKey(includeIfNull: false)
-  DateTime? respondedAt;
+  DateTime? respondedAt; // when masterUser responded this assign("AssignStateEnum.ACCEPTED" or "AssignStateEnum.REJECTED")
   bool get isReplied {
-    return state == AssignStateEnum.Accepted && state == AssignStateEnum.Rejected;
+    return respondedAt != null;
+    // return state == AssignStateEnum.Accepted && state == AssignStateEnum.Rejected;
   }
   bool get isTimeout{
     if (state == AssignStateEnum.Timeout){
@@ -65,13 +77,13 @@ class AssignModel extends Equatable {
       this.guid,
   {
     required this.masterUid,
-    required this.masterDisplayName,
-    required this.masterImageUrl,
     required this.serviceGuid,
     required this.orderGuid,
     required this.hostUid,
     required this.assignTimeoutSeconds,
     required this.deliverTimeoutSeconds,
+    required this.currentOrderStatus,
+    required this.senderUid,
     this.state = AssignStateEnum.Preparing,
     this.assignAt,
   }){

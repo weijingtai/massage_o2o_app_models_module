@@ -9,13 +9,14 @@ part of 'assign_model.dart';
 AssignModel _$AssignModelFromJson(Map json) => AssignModel(
       json['guid'] as String,
       masterUid: json['masterUid'] as String,
-      masterDisplayName: json['masterDisplayName'] as String,
-      masterImageUrl: json['masterImageUrl'] as String,
       serviceGuid: json['serviceGuid'] as String,
       orderGuid: json['orderGuid'] as String,
       hostUid: json['hostUid'] as String,
       assignTimeoutSeconds: json['assignTimeoutSeconds'] as int,
       deliverTimeoutSeconds: json['deliverTimeoutSeconds'] as int,
+      currentOrderStatus:
+          $enumDecode(_$OrderStatusEnumEnumMap, json['currentOrderStatus']),
+      senderUid: json['senderUid'] as String,
       state: $enumDecodeNullable(_$AssignStateEnumEnumMap, json['state']) ??
           AssignStateEnum.Preparing,
       assignAt: json['assignAt'] == null
@@ -35,10 +36,10 @@ Map<String, dynamic> _$AssignModelToJson(AssignModel instance) {
     'serviceGuid': instance.serviceGuid,
     'orderGuid': instance.orderGuid,
     'masterUid': instance.masterUid,
-    'masterDisplayName': instance.masterDisplayName,
-    'masterImageUrl': instance.masterImageUrl,
     'hostUid': instance.hostUid,
+    'senderUid': instance.senderUid,
     'state': _$AssignStateEnumEnumMap[instance.state],
+    'currentOrderStatus': _$OrderStatusEnumEnumMap[instance.currentOrderStatus],
     'assignTimeoutSeconds': instance.assignTimeoutSeconds,
     'deliverTimeoutSeconds': instance.deliverTimeoutSeconds,
   };
@@ -54,6 +55,16 @@ Map<String, dynamic> _$AssignModelToJson(AssignModel instance) {
   writeNotNull('respondedAt', instance.respondedAt?.toIso8601String());
   return val;
 }
+
+const _$OrderStatusEnumEnumMap = {
+  OrderStatusEnum.None: 'None',
+  OrderStatusEnum.Creating: 'Creating',
+  OrderStatusEnum.Assigning: 'Assigning',
+  OrderStatusEnum.Waiting: 'Waiting',
+  OrderStatusEnum.Serving: 'Serving',
+  OrderStatusEnum.Canceled: 'Canceled',
+  OrderStatusEnum.Completed: 'Completed',
+};
 
 const _$AssignStateEnumEnumMap = {
   AssignStateEnum.Preparing: 'Preparing',
