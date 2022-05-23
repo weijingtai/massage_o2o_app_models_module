@@ -26,10 +26,7 @@ ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
           : DateTime.parse(json['deletedAt'] as String),
       masterUid: json['masterUid'] as String?,
       completedSeconds: json['completedSeconds'] as int? ?? 0,
-      assign: json['assign'] == null
-          ? null
-          : AssignModel.fromJson(
-              Map<String, dynamic>.from(json['assign'] as Map)),
+      assignGuid: json['assignGuid'] as String?,
     )..totalServiceMinutes = json['totalServiceMinutes'] as int?;
 
 Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
@@ -54,6 +51,6 @@ Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
   writeNotNull('deletedAt', instance.deletedAt?.toIso8601String());
   writeNotNull('realStartAt', instance.realStartAt?.toIso8601String());
   writeNotNull('doneAt', instance.doneAt?.toIso8601String());
-  writeNotNull('assign', instance.assign?.toJson());
+  writeNotNull('assignGuid', instance.assignGuid);
   return val;
 }
