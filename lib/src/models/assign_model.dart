@@ -32,6 +32,8 @@ class AssignModel extends Equatable {
   // after this timeout seconds, "UI" or "UE" layer should notify "hostUser" to re-send assign
   int deliverTimeoutSeconds;
 
+  DateTime createdAt;
+
 
   @JsonKey(includeIfNull: false)
   DateTime? assignAt;
@@ -39,6 +41,9 @@ class AssignModel extends Equatable {
   // masterUser should immediately send this assign to hostUser when he/she receive this assign
   @JsonKey(includeIfNull: false)
   DateTime? deliveredAt;
+
+  @JsonKey(includeIfNull: false)
+  DateTime? canceledAt;
 
 
   DateTime? get assignTimeoutAt{
@@ -84,8 +89,12 @@ class AssignModel extends Equatable {
     required this.deliverTimeoutSeconds,
     required this.currentOrderStatus,
     required this.senderUid,
+    required this.createdAt,
     this.state = AssignStateEnum.Preparing,
     this.assignAt,
+    this.canceledAt,
+    this.deliveredAt,
+    this.respondedAt
   }){
     // timeoutAt = assignAt?.add(Duration(seconds: assignTimeoutSeconds + deliverTimeoutSeconds));
   }
