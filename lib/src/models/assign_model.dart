@@ -7,7 +7,7 @@ import '../enums/enums.dart';
 
 part 'assign_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class AssignModel extends Equatable {
 
   // assign's unique id
@@ -34,7 +34,6 @@ class AssignModel extends Equatable {
 
   DateTime createdAt;
 
-
   @JsonKey(includeIfNull: false)
   DateTime? assignAt;
 
@@ -45,16 +44,19 @@ class AssignModel extends Equatable {
   @JsonKey(includeIfNull: false)
   DateTime? canceledAt;
 
-
+  @JsonKey(includeIfNull: false)
+  DateTime? timeoutAt;
+  @JsonKey(includeIfNull: false, name:"assignTimeoutAt",toJson: assignTimeoutToJson)
   DateTime? get assignTimeoutAt{
-    if (assignAt != null){
-      return assignAt?.add(Duration(seconds: assignTimeoutSeconds));
+    if (timeoutAt != null){
+      return timeoutAt;
     }
     return null;
   }
+
   DateTime? get deliverTimeoutAt{
     if (assignAt != null){
-      return assignAt?.add(Duration(seconds: deliverTimeoutSeconds));
+      return assignAt!.add(Duration(seconds: deliverTimeoutSeconds));
     }
     return null;
   }
@@ -101,6 +103,19 @@ class AssignModel extends Equatable {
   factory AssignModel.fromJson(Map<String, dynamic> json) => _$AssignModelFromJson(json);
   Map<String, dynamic> toJson() => _$AssignModelToJson(this);
 
+  void assign(){
+    assignAt = DateTime.now();
+    timeoutAt = assignAt!.add(Duration(seconds: assignTimeoutSeconds));
+    state = AssignStateEnum.Assigning;
+  }
+  void accept(){
+    state = AssignStateEnum.Accepted;
+    respondedAt = DateTime.now();
+  }
+  void reject(){
+    state = AssignStateEnum.Rejected;
+    respondedAt = DateTime.now();
+  }
 
   static const _$AssignStateEnumMap = <AssignStateEnum, String>{
     AssignStateEnum.Preparing: "Preparing",
@@ -113,6 +128,9 @@ class AssignModel extends Equatable {
   };
 
   @override
-  // TODO: implement props
   List<Object?> get props => [guid,serviceGuid,masterUid,state,assignAt,assignTimeoutAt];
+}
+
+String? assignTimeoutToJson(DateTime? objectField) {
+  return objectField?.toIso8601String();
 }
