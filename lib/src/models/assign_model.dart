@@ -103,9 +103,20 @@ class AssignModel extends Equatable {
   factory AssignModel.fromJson(Map<String, dynamic> json) => _$AssignModelFromJson(json);
   Map<String, dynamic> toJson() => _$AssignModelToJson(this);
 
+  void cancel(){
+    state = AssignStateEnum.Canceled;
+    canceledAt = DateTime.now();
+  }
   void assign(){
     assignAt = DateTime.now();
     timeoutAt = assignAt!.add(Duration(seconds: assignTimeoutSeconds));
+    state = AssignStateEnum.Delivering;
+    if (canceledAt != null){
+      canceledAt = null;
+    }
+  }
+  void deliver(){
+    deliveredAt = DateTime.now();
     state = AssignStateEnum.Assigning;
   }
   void accept(){
