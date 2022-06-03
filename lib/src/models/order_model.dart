@@ -14,7 +14,7 @@ class OrderModel {
   late String hostUid;
   late String creatorUid;
 
-  late int totalServiceMinutes;
+  late int totalMinutes;
 
   late int totalCustomers;
   late int totalServices;
@@ -51,7 +51,7 @@ class OrderModel {
   OrderModel(this.guid,{
     required this.hostUid,
     required this.creatorUid,
-    required this.totalServiceMinutes,
+    required this.totalMinutes,
     required this.appointmentStartAt,
     required this.totalServices,
     required this.totalCustomers,
