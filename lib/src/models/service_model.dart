@@ -72,6 +72,7 @@ class ServiceModel {
     this.masterUid,
     this.completedSeconds = 0,
     this.assignGuid,
+    this.state = ServiceStateEnum.NoMasterSelected,
     List<ServiceEventUnit>? eventList,
     List<ServiceStateUnit>? stateList,
     List<ServiceDurationOperationUnit>? durationUpdateList,
