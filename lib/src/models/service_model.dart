@@ -87,11 +87,12 @@ class ServiceModel {
     _stateUpdateList.add(newState);
   }
   // late bool isCanceled = false;
-  ServiceStateEnum get currentState{
-    return _stateUpdateList.last.state;
-  }
+  // ServiceStateEnum get currentState{
+  //   return _stateUpdateList.last.state;
+  // }
+  ServiceStateEnum state;
   bool get isCanceled {
-    return currentState == ServiceStateEnum.canceled;
+    return state == ServiceStateEnum.canceled;
   }
 
   factory ServiceModel.fromJson(Map<String, dynamic> json) => _$ServiceModelFromJson(json);
