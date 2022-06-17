@@ -35,6 +35,9 @@ class AssignModel extends Equatable {
   DateTime createdAt;
 
   @JsonKey(includeIfNull: false)
+  DateTime? lastModifiedAt;
+
+  @JsonKey(includeIfNull: false)
   DateTime? assignAt;
 
   // masterUser should immediately send this assign to hostUser when he/she receive this assign
@@ -46,6 +49,7 @@ class AssignModel extends Equatable {
 
   @JsonKey(includeIfNull: false)
   DateTime? timeoutAt;
+
   @JsonKey(includeIfNull: false, name:"assignTimeoutAt",toJson: assignTimeoutToJson)
   DateTime? get assignTimeoutAt{
     if (timeoutAt != null){
@@ -96,7 +100,8 @@ class AssignModel extends Equatable {
     this.assignAt,
     this.canceledAt,
     this.deliveredAt,
-    this.respondedAt
+    this.respondedAt,
+    this.lastModifiedAt,
   }){
     // timeoutAt = assignAt?.add(Duration(seconds: assignTimeoutSeconds + deliverTimeoutSeconds));
   }
