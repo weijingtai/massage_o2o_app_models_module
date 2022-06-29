@@ -1,13 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
 enum AssignEventEnum{
-@JsonValue(0)
+@JsonValue("assign")
   assign,
-@JsonValue(1)
+@JsonValue("cancel")
   cancel,
-@JsonValue(2)
+@JsonValue("reject")
   reject,
-@JsonValue(3)
+@JsonValue("accept")
   accept,
-@JsonValue(4)
+@JsonValue("timeout")
   timeout
 }

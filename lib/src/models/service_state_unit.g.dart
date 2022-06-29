@@ -22,15 +22,16 @@ Map<String, dynamic> _$ServiceStateUnitToJson(ServiceStateUnit instance) =>
     };
 
 const _$ServiceStateEnumEnumMap = {
-  ServiceStateEnum.preparing: 0,
-  ServiceStateEnum.assigning: 1,
-  ServiceStateEnum.reassigning: 2,
-  ServiceStateEnum.serving: 3,
-  ServiceStateEnum.master_changed: 4,
-  ServiceStateEnum.waiting: 5,
-  ServiceStateEnum.waiting_master: 6,
-  ServiceStateEnum.reminded: 7,
-  ServiceStateEnum.paused: 8,
-  ServiceStateEnum.finished: 9,
-  ServiceStateEnum.canceled: 10,
+  ServiceStateEnum.NoMasterSelected: 'NoMasterSelected',
+  ServiceStateEnum.preparing: 'preparing',
+  ServiceStateEnum.assigning: 'assigning',
+  ServiceStateEnum.reassigning: 'reassigning',
+  ServiceStateEnum.serving: 'serving',
+  ServiceStateEnum.master_changed: 'master_changed',
+  ServiceStateEnum.waiting: 'waiting',
+  ServiceStateEnum.waiting_master: 'waiting_master',
+  ServiceStateEnum.reminded: 'reminded',
+  ServiceStateEnum.paused: 'paused',
+  ServiceStateEnum.finished: 'finished',
+  ServiceStateEnum.canceled: 'canceled',
 };

@@ -27,6 +27,8 @@ ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
       masterUid: json['masterUid'] as String?,
       completedSeconds: json['completedSeconds'] as int? ?? 0,
       assignGuid: json['assignGuid'] as String?,
+      state: $enumDecodeNullable(_$ServiceStateEnumEnumMap, json['state']) ??
+          ServiceStateEnum.NoMasterSelected,
     )..totalServiceMinutes = json['totalServiceMinutes'] as int?;
 
 Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
@@ -52,5 +54,21 @@ Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
   writeNotNull('realStartAt', instance.realStartAt?.toIso8601String());
   writeNotNull('doneAt', instance.doneAt?.toIso8601String());
   writeNotNull('assignGuid', instance.assignGuid);
+  val['state'] = _$ServiceStateEnumEnumMap[instance.state];
   return val;
 }
+
+const _$ServiceStateEnumEnumMap = {
+  ServiceStateEnum.NoMasterSelected: 'NoMasterSelected',
+  ServiceStateEnum.preparing: 'preparing',
+  ServiceStateEnum.assigning: 'assigning',
+  ServiceStateEnum.reassigning: 'reassigning',
+  ServiceStateEnum.serving: 'serving',
+  ServiceStateEnum.master_changed: 'master_changed',
+  ServiceStateEnum.waiting: 'waiting',
+  ServiceStateEnum.waiting_master: 'waiting_master',
+  ServiceStateEnum.reminded: 'reminded',
+  ServiceStateEnum.paused: 'paused',
+  ServiceStateEnum.finished: 'finished',
+  ServiceStateEnum.canceled: 'canceled',
+};
