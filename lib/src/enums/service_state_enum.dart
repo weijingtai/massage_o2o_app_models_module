@@ -3,26 +3,24 @@ import 'package:json_annotation/json_annotation.dart';
 enum ServiceStateEnum{
   @JsonValue("NoMasterSelected")
   NoMasterSelected,
-  @JsonValue("preparing")
-  preparing,
-  @JsonValue("assigning")
-  assigning,
-  @JsonValue("reassigning")
-  reassigning,
-  @JsonValue("serving")
-  serving,
-  @JsonValue("master_changed")
-  master_changed,
-  @JsonValue("waiting")
-  waiting,
-  @JsonValue("waiting_master")
-  waiting_master,
-  @JsonValue("reminded")
-  reminded,
-  @JsonValue("paused")
-  paused,
-  @JsonValue("finished")
-  finished,
+  @JsonValue("Preparing")
+  Preparing,
+  @JsonValue("Assigning")
+  Assigning,
+  @JsonValue("Waiting")
+  Waiting,
+  @JsonValue("WaitingMaster")
+  WaitingMaster,
+  @JsonValue("Serving")
+  Serving,
+  @JsonValue("Paused")
+  Paused,
+  @JsonValue("Finished")
+  Finished, // service end before apointment service duration completed
+  @JsonValue("Completed")
+  Completed,
   @JsonValue("canceled")
-  canceled
+  Canceled,  // service totally canceled by HostUser,MasterUser,
+  @JsonValue("Replaced")
+  Replaced, // switch service to new service with other master, when service is started
 }
