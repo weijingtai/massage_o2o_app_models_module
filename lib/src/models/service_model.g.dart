@@ -7,29 +7,43 @@ part of 'service_model.dart';
 // **************************************************************************
 
 ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
-      json['guid'] as String,
+      guid: json['guid'] as String,
+      orderGuid: json['orderGuid'] as String,
       seqInOrder: json['seqInOrder'] as int,
       creatorUid: json['creatorUid'] as String,
-      orderGuid: json['orderGuid'] as String,
+      state: $enumDecode(_$ServiceStateEnumEnumMap, json['state']),
       createdAt: DateTime.parse(json['createdAt'] as String),
-      realStartAt: json['realStartAt'] == null
-          ? null
-          : DateTime.parse(json['realStartAt'] as String),
-      doneAt: json['doneAt'] == null
-          ? null
-          : DateTime.parse(json['doneAt'] as String),
+      completedSeconds: json['completedSeconds'] as int? ?? 0,
+      replacedByServiceGuid: json['replacedByServiceGuid'] as String?,
+      assignedMasterUid: json['assignedMasterUid'] as String?,
+      totalServiceMinutes: json['totalServiceMinutes'] as int?,
       lastModifiedAt: json['lastModifiedAt'] == null
           ? null
           : DateTime.parse(json['lastModifiedAt'] as String),
+      lastModifiedByUid: json['lastModifiedByUid'] as String?,
       deletedAt: json['deletedAt'] == null
           ? null
           : DateTime.parse(json['deletedAt'] as String),
-      masterUid: json['masterUid'] as String?,
-      completedSeconds: json['completedSeconds'] as int? ?? 0,
       assignGuid: json['assignGuid'] as String?,
-      state: $enumDecodeNullable(_$ServiceStateEnumEnumMap, json['state']) ??
-          ServiceStateEnum.NoMasterSelected,
-    )..totalServiceMinutes = json['totalServiceMinutes'] as int?;
+      startedAt: json['startedAt'] == null
+          ? null
+          : DateTime.parse(json['startedAt'] as String),
+      completedAt: json['completedAt'] == null
+          ? null
+          : DateTime.parse(json['completedAt'] as String),
+      finishedAt: json['finishedAt'] == null
+          ? null
+          : DateTime.parse(json['finishedAt'] as String),
+      canceledAt: json['canceledAt'] == null
+          ? null
+          : DateTime.parse(json['canceledAt'] as String),
+      replacedAt: json['replacedAt'] == null
+          ? null
+          : DateTime.parse(json['replacedAt'] as String),
+      acceptedAt: json['acceptedAt'] == null
+          ? null
+          : DateTime.parse(json['acceptedAt'] as String),
+    );
 
 Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
   final val = <String, dynamic>{
@@ -45,30 +59,35 @@ Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
     }
   }
 
-  writeNotNull('masterUid', instance.masterUid);
+  writeNotNull('replacedByServiceGuid', instance.replacedByServiceGuid);
+  writeNotNull('assignedMasterUid', instance.assignedMasterUid);
   writeNotNull('totalServiceMinutes', instance.totalServiceMinutes);
   val['completedSeconds'] = instance.completedSeconds;
   val['createdAt'] = instance.createdAt.toIso8601String();
   writeNotNull('lastModifiedAt', instance.lastModifiedAt?.toIso8601String());
+  writeNotNull('lastModifiedByUid', instance.lastModifiedByUid);
   writeNotNull('deletedAt', instance.deletedAt?.toIso8601String());
-  writeNotNull('realStartAt', instance.realStartAt?.toIso8601String());
-  writeNotNull('doneAt', instance.doneAt?.toIso8601String());
   writeNotNull('assignGuid', instance.assignGuid);
+  writeNotNull('startedAt', instance.startedAt?.toIso8601String());
+  writeNotNull('completedAt', instance.completedAt?.toIso8601String());
+  writeNotNull('finishedAt', instance.finishedAt?.toIso8601String());
+  writeNotNull('canceledAt', instance.canceledAt?.toIso8601String());
+  writeNotNull('replacedAt', instance.replacedAt?.toIso8601String());
+  writeNotNull('acceptedAt', instance.acceptedAt?.toIso8601String());
   val['state'] = _$ServiceStateEnumEnumMap[instance.state];
   return val;
 }
 
 const _$ServiceStateEnumEnumMap = {
   ServiceStateEnum.NoMasterSelected: 'NoMasterSelected',
-  ServiceStateEnum.preparing: 'preparing',
-  ServiceStateEnum.assigning: 'assigning',
-  ServiceStateEnum.reassigning: 'reassigning',
-  ServiceStateEnum.serving: 'serving',
-  ServiceStateEnum.master_changed: 'master_changed',
-  ServiceStateEnum.waiting: 'waiting',
-  ServiceStateEnum.waiting_master: 'waiting_master',
-  ServiceStateEnum.reminded: 'reminded',
-  ServiceStateEnum.paused: 'paused',
-  ServiceStateEnum.finished: 'finished',
-  ServiceStateEnum.canceled: 'canceled',
+  ServiceStateEnum.Preparing: 'Preparing',
+  ServiceStateEnum.Assigning: 'Assigning',
+  ServiceStateEnum.Waiting: 'Waiting',
+  ServiceStateEnum.WaitingMaster: 'WaitingMaster',
+  ServiceStateEnum.Serving: 'Serving',
+  ServiceStateEnum.Paused: 'Paused',
+  ServiceStateEnum.Finished: 'Finished',
+  ServiceStateEnum.Completed: 'Completed',
+  ServiceStateEnum.Canceled: 'canceled',
+  ServiceStateEnum.Replaced: 'Replaced',
 };
