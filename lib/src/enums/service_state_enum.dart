@@ -9,8 +9,10 @@ enum ServiceStateEnum{
   Assigning,
   @JsonValue("Waiting")
   Waiting,
-  @JsonValue("WaitingMaster")
-  WaitingMaster,
+  @JsonValue("CustomerArrived")
+  CustomerArrived,
+  @JsonValue("Running")
+  Running, // master user replied to CustomerArrived
   @JsonValue("Serving")
   Serving,
   @JsonValue("Paused")
