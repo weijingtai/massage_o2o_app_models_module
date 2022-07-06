@@ -12,8 +12,8 @@ ServiceDurationOperationUnit _$ServiceDurationOperationUnitFromJson(Map json) =>
       serviceGuid: json['serviceGuid'] as String,
       operatorUid: json['operatorUid'] as String,
       minutes: json['minutes'] as int,
-      operation: $enumDecode(
-          _$ServiceDurationOperationTypeEnumEnumMap, json['operation']),
+      operation:
+          $enumDecode(_$ServiceDurationOperateEnumEnumMap, json['operation']),
       operateAt: DateTime.parse(json['operateAt'] as String),
     );
 
@@ -25,11 +25,11 @@ Map<String, dynamic> _$ServiceDurationOperationUnitToJson(
       'operatorUid': instance.operatorUid,
       'minutes': instance.minutes,
       'operateAt': instance.operateAt.toIso8601String(),
-      'operation':
-          _$ServiceDurationOperationTypeEnumEnumMap[instance.operation],
+      'operation': _$ServiceDurationOperateEnumEnumMap[instance.operation],
     };
 
-const _$ServiceDurationOperationTypeEnumEnumMap = {
-  ServiceDurationOperationTypeEnum.Increase: 1,
-  ServiceDurationOperationTypeEnum.Decrease: 0,
+const _$ServiceDurationOperateEnumEnumMap = {
+  ServiceDurationOperateEnum.Init: 'Init',
+  ServiceDurationOperateEnum.Increase: 'Increase',
+  ServiceDurationOperateEnum.Decrease: 'Decrease',
 };

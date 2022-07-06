@@ -2,6 +2,8 @@ import 'package:equatable/equatable.dart';
 import '../enums/enums.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import '../enums/service_duration_operate_enum.dart';
+
 part 'service_duration_operation_unit.g.dart';
 
 @JsonSerializable()
@@ -13,7 +15,7 @@ class ServiceDurationOperationUnit extends Comparable<ServiceDurationOperationUn
 
   late int minutes;
   DateTime operateAt;
-  ServiceDurationOperationTypeEnum operation;
+  ServiceDurationOperateEnum operation;
 
   ServiceDurationOperationUnit(this.guid,{
     required this.serviceGuid,
@@ -26,13 +28,13 @@ class ServiceDurationOperationUnit extends Comparable<ServiceDurationOperationUn
     required this.serviceGuid,
     required this.operatorUid,
     required this.minutes,
-  }):operateAt = DateTime.now(),this.operation=ServiceDurationOperationTypeEnum.Increase;
+  }):operateAt = DateTime.now(),this.operation=ServiceDurationOperateEnum.Increase;
 
   ServiceDurationOperationUnit.decrease(this.guid,{
     required this.serviceGuid,
     required this.operatorUid,
     required this.minutes,
-  }):operateAt = DateTime.now(),this.operation=ServiceDurationOperationTypeEnum.Decrease;
+  }):operateAt = DateTime.now(),this.operation=ServiceDurationOperateEnum.Decrease;
 
 
   factory ServiceDurationOperationUnit.fromJson(Map<String, dynamic> json) => _$ServiceDurationOperationUnitFromJson(json);
@@ -50,17 +52,13 @@ class ServiceDurationOperationUnit extends Comparable<ServiceDurationOperationUn
     }
     return operateAt.compareTo(other.operateAt);
   }
-  static const _$ServiceDurationOperationTypeEnumMap = <ServiceDurationOperationTypeEnum, String>{
-    ServiceDurationOperationTypeEnum.Increase: 'INCREASE',
-    ServiceDurationOperationTypeEnum.Decrease: "DECREASE",
+  static const _$ServiceDurationOperationTypeEnumMap = <ServiceDurationOperateEnum, String>{
+    ServiceDurationOperateEnum.Increase: 'Increase',
+    ServiceDurationOperateEnum.Decrease: "Decrease",
+    ServiceDurationOperateEnum.Init: "Init",
   };
 
 }
 
-enum ServiceDurationOperationTypeEnum{
-  @JsonValue(1)
-  Increase,
-  @JsonValue(0)
-  Decrease
-}
+
 
