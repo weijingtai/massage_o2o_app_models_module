@@ -68,7 +68,7 @@ class ServiceModel {
   // // late Assign assign;
   // late List<ServiceEventUnit> _eventUpdateList;
   // late List<ServiceStateUnit> _stateUpdateList;
-  // late List<ServiceDurationOperationUnit>? _durationUpdateList;
+  List<ServiceDurationOperationUnit> serviceDurationUpdateList = [];
 
 
   ServiceModel({
@@ -92,6 +92,7 @@ class ServiceModel {
     this.canceledAt,
     this.replacedAt,
     this.acceptedAt,
+    this.serviceDurationUpdateList = const []
   });
 
 
