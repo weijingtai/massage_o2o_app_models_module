@@ -50,15 +50,10 @@ class ServiceModel {
   @JsonKey(includeIfNull: false)
   DateTime? startedAt;
   @JsonKey(includeIfNull: false)
-  DateTime? completedAt; // service real done at
-  @JsonKey(includeIfNull: false)
-  DateTime? finishedAt;  // end before service completed
-  @JsonKey(includeIfNull: false)
-  DateTime? canceledAt;
-  @JsonKey(includeIfNull: false)
-  DateTime? replacedAt; // switch master when service already started (after serving, startedAt not null)
-  @JsonKey(includeIfNull: false)
   DateTime? acceptedAt;
+  @JsonKey(includeIfNull: false)
+  DateTime? doneAt; // service last state is done including [Finished,  Completed,  Canceled,  Replaced]
+
   ServiceStateEnum state;
   bool get isCanceled {
     return state == ServiceStateEnum.Canceled;
@@ -87,10 +82,7 @@ class ServiceModel {
     this.deletedAt,
     this.assignGuid,
     this.startedAt,
-    this.completedAt,
-    this.finishedAt,
-    this.canceledAt,
-    this.replacedAt,
+    this.doneAt,
     this.acceptedAt,
     this.serviceDurationUpdateList = const []
   });

@@ -28,18 +28,9 @@ ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
       startedAt: json['startedAt'] == null
           ? null
           : DateTime.parse(json['startedAt'] as String),
-      completedAt: json['completedAt'] == null
+      doneAt: json['doneAt'] == null
           ? null
-          : DateTime.parse(json['completedAt'] as String),
-      finishedAt: json['finishedAt'] == null
-          ? null
-          : DateTime.parse(json['finishedAt'] as String),
-      canceledAt: json['canceledAt'] == null
-          ? null
-          : DateTime.parse(json['canceledAt'] as String),
-      replacedAt: json['replacedAt'] == null
-          ? null
-          : DateTime.parse(json['replacedAt'] as String),
+          : DateTime.parse(json['doneAt'] as String),
       acceptedAt: json['acceptedAt'] == null
           ? null
           : DateTime.parse(json['acceptedAt'] as String),
@@ -75,11 +66,8 @@ Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
   writeNotNull('deletedAt', instance.deletedAt?.toIso8601String());
   writeNotNull('assignGuid', instance.assignGuid);
   writeNotNull('startedAt', instance.startedAt?.toIso8601String());
-  writeNotNull('completedAt', instance.completedAt?.toIso8601String());
-  writeNotNull('finishedAt', instance.finishedAt?.toIso8601String());
-  writeNotNull('canceledAt', instance.canceledAt?.toIso8601String());
-  writeNotNull('replacedAt', instance.replacedAt?.toIso8601String());
   writeNotNull('acceptedAt', instance.acceptedAt?.toIso8601String());
+  writeNotNull('doneAt', instance.doneAt?.toIso8601String());
   val['state'] = _$ServiceStateEnumEnumMap[instance.state];
   val['serviceDurationUpdateList'] =
       instance.serviceDurationUpdateList.map((e) => e.toJson()).toList();
