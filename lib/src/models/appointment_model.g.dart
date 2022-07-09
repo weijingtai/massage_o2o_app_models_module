@@ -23,9 +23,9 @@ Map<String, dynamic> _$AppointmentToJson(Appointment instance) =>
     };
 
 const _$AppointmentStateEnumEnumMap = {
-  AppointmentStateEnum.appointed: 0,
-  AppointmentStateEnum.canceled: 1,
-  AppointmentStateEnum.serving: 2,
-  AppointmentStateEnum.soon: 3,
-  AppointmentStateEnum.unavailable: 4,
+  AppointmentStateEnum.Appointed: 'Appointed',
+  AppointmentStateEnum.Canceled: 'Canceled',
+  AppointmentStateEnum.Serving: 'Serving',
+  AppointmentStateEnum.Soon: 'Soon',
+  AppointmentStateEnum.Unavailable: 'Unavailable',
 };
