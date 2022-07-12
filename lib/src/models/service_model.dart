@@ -35,6 +35,11 @@ class ServiceModel {
   int completedSeconds = 0; // when service paused, this value should re-calculate
 
   DateTime createdAt;
+
+  // host user can set this filed manually. when service has especial appointment start time, this field should be set.
+  // when appointmentStartAt is null and this service is assigned success, this value should be set same as order's appointmentStartAt value.
+  @JsonKey(includeIfNull: false)
+  DateTime? appointmentStartAt;
   @JsonKey(includeIfNull: false)
   DateTime? lastModifiedAt;
   String? lastModifiedByUid;
@@ -84,6 +89,7 @@ class ServiceModel {
     this.startedAt,
     this.doneAt,
     this.acceptedAt,
+    this.appointmentStartAt,
     this.serviceDurationUpdateList = const []
   });
 
