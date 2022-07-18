@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import '../enums/enums.dart';
 import 'base_user_info.dart';
 import 'assign_model.dart';
-import 'service_model.dart';
+import 'services/service_model.dart';
 
 part 'order_assign_notification_model.g.dart';
 

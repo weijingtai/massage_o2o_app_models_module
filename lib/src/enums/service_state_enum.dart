@@ -18,11 +18,11 @@ enum ServiceStateEnum{
   @JsonValue("Paused")
   Paused,
   @JsonValue("Finished")
-  Finished, // service end before apointment service duration completed
+  Finished, // services end before apointment services duration completed
   @JsonValue("Completed")
   Completed,
   @JsonValue("Canceled")
-  Canceled,  // service totally canceled by HostUser,MasterUser,
+  Canceled,  // services totally canceled by HostUser,MasterUser,
   @JsonValue("Replaced")
-  Replaced, // switch service to new service with other master, when service is started
+  Replaced, // switch services to new services with other master, when services is started
 }

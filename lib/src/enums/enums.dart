@@ -9,3 +9,4 @@ export 'subscribe_state_enum.dart';
 export 'user_online_enum.dart';
 export 'user_role_enum.dart';
 export 'service_duration_operate_enum.dart';
+export 'service_event_enum.dart';

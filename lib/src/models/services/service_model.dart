@@ -1,9 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:massage_o2o_app_models_module/src/models/services/base_service_event.dart';
 
 
-import '../enums/enums.dart';
-import 'assign_model.dart';
-import 'service_duration_operation_unit.dart';
+import '../../enums/enums.dart';
+import '../service_duration_operation_unit.dart';
+import 'service_event.dart';
 
 // import 'service_state_unit.dart';
 // import 'service_event_unit.dart';
@@ -28,16 +29,16 @@ class ServiceModel {
   }
 
   @JsonKey(includeIfNull: false)
-  int? totalServiceMinutes; // this is the total service minutes of the service.
+  int? totalServiceMinutes; // this is the total services minutes of the services.
   int get serviceDurationInSeconds{
     return (totalServiceMinutes ?? 0) * 60;
   }
-  int completedSeconds = 0; // when service paused, this value should re-calculate
+  int completedSeconds = 0; // when services paused, this value should re-calculate
 
   DateTime createdAt;
 
-  // host user can set this filed manually. when service has especial appointment start time, this field should be set.
-  // when appointmentStartAt is null and this service is assigned success, this value should be set same as order's appointmentStartAt value.
+  // host user can set this filed manually. when services has especial appointment start time, this field should be set.
+  // when appointmentStartAt is null and this services is assigned success, this value should be set same as order's appointmentStartAt value.
   @JsonKey(includeIfNull: false)
   DateTime? appointmentStartAt;
   @JsonKey(includeIfNull: false)
@@ -57,7 +58,7 @@ class ServiceModel {
   @JsonKey(includeIfNull: false)
   DateTime? acceptedAt;
   @JsonKey(includeIfNull: false)
-  DateTime? doneAt; // service last state is done including [Finished,  Completed,  Canceled,  Replaced]
+  DateTime? doneAt; // services last state is done including [Finished,  Completed,  Canceled,  Replaced]
 
   ServiceStateEnum state;
   bool get isCanceled {
@@ -68,7 +69,8 @@ class ServiceModel {
   // // late Assign assign;
   // late List<ServiceEventUnit> _eventUpdateList;
   // late List<ServiceStateUnit> _stateUpdateList;
-  List<ServiceDurationOperationUnit> serviceDurationUpdateList = [];
+  List<BaseServiceEvent> baseServiceEventList = [];
+
 
 
   ServiceModel({
@@ -90,7 +92,7 @@ class ServiceModel {
     this.doneAt,
     this.acceptedAt,
     this.appointmentStartAt,
-    this.serviceDurationUpdateList = const []
+    this.baseServiceEventList = const []
   });
 
 

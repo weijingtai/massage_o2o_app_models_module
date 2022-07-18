@@ -32,7 +32,7 @@ export 'order_assign_notification_model.dart';
 export 'order_model.dart';
 export 'service_duration_operation_unit.dart';
 // export 'service_event_unit.dart';
-export 'service_model.dart';
+export 'services/service_model.dart';
 // export 'service_state_unit.dart';
 export 'serving_service_base_model.dart';
 export 'sortable_service.dart';

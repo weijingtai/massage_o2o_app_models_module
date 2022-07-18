@@ -13,9 +13,9 @@ class ServiceDurationOperationUnit extends Comparable<ServiceDurationOperationUn
 
   String operatorUid;
 
-  late int minutes;
   DateTime operateAt;
   ServiceDurationOperateEnum operation;
+  late int minutes;
 
   ServiceDurationOperationUnit(this.guid,{
     required this.serviceGuid,

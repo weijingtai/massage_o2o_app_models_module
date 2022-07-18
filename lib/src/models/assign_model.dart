@@ -12,7 +12,7 @@ class AssignModel extends Equatable {
 
   // assign's unique id
   String guid;
-  // service which is assigned for
+  // services which is assigned for
   String serviceGuid;
   // master which is assigned for
   String orderGuid;

@@ -37,12 +37,11 @@ ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
       appointmentStartAt: json['appointmentStartAt'] == null
           ? null
           : DateTime.parse(json['appointmentStartAt'] as String),
-      serviceDurationUpdateList:
-          (json['serviceDurationUpdateList'] as List<dynamic>?)
-                  ?.map((e) => ServiceDurationOperationUnit.fromJson(
-                      Map<String, dynamic>.from(e as Map)))
-                  .toList() ??
-              const [],
+      baseServiceEventList: (json['baseServiceEventList'] as List<dynamic>?)
+              ?.map((e) => BaseServiceEvent.fromJson(
+                  Map<String, dynamic>.from(e as Map)))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
@@ -74,8 +73,8 @@ Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
   writeNotNull('acceptedAt', instance.acceptedAt?.toIso8601String());
   writeNotNull('doneAt', instance.doneAt?.toIso8601String());
   val['state'] = _$ServiceStateEnumEnumMap[instance.state];
-  val['serviceDurationUpdateList'] =
-      instance.serviceDurationUpdateList.map((e) => e.toJson()).toList();
+  val['baseServiceEventList'] =
+      instance.baseServiceEventList.map((e) => e.toJson()).toList();
   return val;
 }
 

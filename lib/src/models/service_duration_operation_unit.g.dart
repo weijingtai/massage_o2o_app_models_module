@@ -23,9 +23,9 @@ Map<String, dynamic> _$ServiceDurationOperationUnitToJson(
       'serviceGuid': instance.serviceGuid,
       'guid': instance.guid,
       'operatorUid': instance.operatorUid,
-      'minutes': instance.minutes,
       'operateAt': instance.operateAt.toIso8601String(),
       'operation': _$ServiceDurationOperateEnumEnumMap[instance.operation],
+      'minutes': instance.minutes,
     };
 
 const _$ServiceDurationOperateEnumEnumMap = {

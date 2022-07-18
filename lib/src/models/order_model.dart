@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 import '../enums/enums.dart';
 
 import 'assign_model.dart';
-import 'service_model.dart';
+import 'services/service_model.dart';
 
 part 'order_model.g.dart';
 
@@ -25,7 +25,7 @@ class OrderModel {
   @JsonKey(includeIfNull: false)
   DateTime? lastModifiedAt;
 
-  // customer appointment service start at
+  // customer appointment services start at
   DateTime appointmentStartAt;
 
   @JsonKey(includeIfNull: false)
