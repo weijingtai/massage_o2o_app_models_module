@@ -28,6 +28,9 @@ ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
       startedAt: json['startedAt'] == null
           ? null
           : DateTime.parse(json['startedAt'] as String),
+      assertCompletedAt: json['assertCompletedAt'] == null
+          ? null
+          : DateTime.parse(json['assertCompletedAt'] as String),
       doneAt: json['doneAt'] == null
           ? null
           : DateTime.parse(json['doneAt'] as String),
@@ -70,6 +73,8 @@ Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
   writeNotNull('deletedAt', instance.deletedAt?.toIso8601String());
   writeNotNull('assignGuid', instance.assignGuid);
   writeNotNull('startedAt', instance.startedAt?.toIso8601String());
+  writeNotNull(
+      'assertCompletedAt', instance.assertCompletedAt?.toIso8601String());
   writeNotNull('acceptedAt', instance.acceptedAt?.toIso8601String());
   writeNotNull('doneAt', instance.doneAt?.toIso8601String());
   val['state'] = _$ServiceStateEnumEnumMap[instance.state];
