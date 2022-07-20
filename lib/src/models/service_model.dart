@@ -54,6 +54,14 @@ class ServiceModel {
   // late bool isNow;
   @JsonKey(includeIfNull: false)
   DateTime? startedAt;
+  /// filed will be used as asset service is processing or completed when client side lost connection.
+  ///
+  /// this field should be calculate with startedAt set by startedAt.add(Duration(minutes: serviceDuration));
+  /// and when duration updates(add/subtract), this field should be updated.
+  /// when service state is Pause, this value should be removed
+  /// when service state is Resumed from Pause, this value should be re-calculate
+  @JsonKey(includeIfNull: false)
+  DateTime? assertCompletedAt;
   @JsonKey(includeIfNull: false)
   DateTime? acceptedAt;
   @JsonKey(includeIfNull: false)
@@ -87,6 +95,7 @@ class ServiceModel {
     this.deletedAt,
     this.assignGuid,
     this.startedAt,
+    this.assertCompletedAt,
     this.doneAt,
     this.acceptedAt,
     this.appointmentStartAt,
