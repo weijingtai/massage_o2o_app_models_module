@@ -56,8 +56,8 @@ Map<String, dynamic> _$OrderModelToJson(OrderModel instance) {
   val['appointmentStartAt'] = instance.appointmentStartAt.toIso8601String();
   writeNotNull('realStartAt', instance.realStartAt?.toIso8601String());
   writeNotNull('allDoneAt', instance.allDoneAt?.toIso8601String());
-  val['status'] = _$OrderStatusEnumEnumMap[instance.status];
-  val['previousStatus'] = _$OrderStatusEnumEnumMap[instance.previousStatus];
+  val['status'] = _$OrderStatusEnumEnumMap[instance.status]!;
+  val['previousStatus'] = _$OrderStatusEnumEnumMap[instance.previousStatus]!;
   val['isNow'] = instance.isNow;
   return val;
 }

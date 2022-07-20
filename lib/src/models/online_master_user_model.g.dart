@@ -34,7 +34,7 @@ OnlineMasterUserModel _$OnlineMasterUserModelFromJson(Map json) =>
 Map<String, dynamic> _$OnlineMasterUserModelToJson(
     OnlineMasterUserModel instance) {
   final val = <String, dynamic>{
-    'onlineStatus': _$UserOnlineStatusEnumEnumMap[instance.onlineStatus],
+    'onlineStatus': _$UserOnlineStatusEnumEnumMap[instance.onlineStatus]!,
     'baseInfo': instance.baseInfo.toJson(),
     'lastLoginAt': instance.lastLoginAt.toIso8601String(),
   };

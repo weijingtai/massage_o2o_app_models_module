@@ -47,8 +47,9 @@ Map<String, dynamic> _$AssignModelToJson(AssignModel instance) {
     'masterUid': instance.masterUid,
     'hostUid': instance.hostUid,
     'senderUid': instance.senderUid,
-    'state': _$AssignStateEnumEnumMap[instance.state],
-    'currentOrderStatus': _$OrderStatusEnumEnumMap[instance.currentOrderStatus],
+    'state': _$AssignStateEnumEnumMap[instance.state]!,
+    'currentOrderStatus':
+        _$OrderStatusEnumEnumMap[instance.currentOrderStatus]!,
     'assignTimeoutSeconds': instance.assignTimeoutSeconds,
     'deliverTimeoutSeconds': instance.deliverTimeoutSeconds,
     'createdAt': instance.createdAt.toIso8601String(),

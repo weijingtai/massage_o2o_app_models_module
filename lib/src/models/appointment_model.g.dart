@@ -19,7 +19,7 @@ Map<String, dynamic> _$AppointmentToJson(Appointment instance) =>
       'appointmentAt': instance.appointmentAt.toIso8601String(),
       'serviceDuration': instance.serviceDuration,
       'appointmentState':
-          _$AppointmentStateEnumEnumMap[instance.appointmentState],
+          _$AppointmentStateEnumEnumMap[instance.appointmentState]!,
     };
 
 const _$AppointmentStateEnumEnumMap = {

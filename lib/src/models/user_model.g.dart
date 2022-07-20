@@ -29,7 +29,7 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) {
   }
 
   writeNotNull('photoURL', instance.photoURL);
-  val['role'] = _$UserRoleEnumEnumMap[instance.role];
+  val['role'] = _$UserRoleEnumEnumMap[instance.role]!;
   val['alphabetName'] = instance.alphabetName;
   val['phoneNumber'] = instance.phoneNumber;
   val['username'] = instance.username;

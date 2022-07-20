@@ -50,8 +50,8 @@ Map<String, dynamic> _$OrderAssignNotificationModelToJson(
 
   writeNotNull(
       'appointmentStartAt', instance.appointmentStartAt?.toIso8601String());
-  val['orderState'] = _$OrderStatusEnumEnumMap[instance.orderState];
-  val['assignState'] = _$AssignStateEnumEnumMap[instance.assignState];
+  val['orderState'] = _$OrderStatusEnumEnumMap[instance.orderState]!;
+  val['assignState'] = _$AssignStateEnumEnumMap[instance.assignState]!;
   val['assignAt'] = instance.assignAt.toIso8601String();
   val['assignTimeoutSeconds'] = instance.assignTimeoutSeconds;
   val['totalServiceNumber'] = instance.totalServiceNumber;
