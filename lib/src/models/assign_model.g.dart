@@ -35,6 +35,9 @@ AssignModel _$AssignModelFromJson(Map json) => AssignModel(
       lastModifiedAt: json['lastModifiedAt'] == null
           ? null
           : DateTime.parse(json['lastModifiedAt'] as String),
+      deletedAt: json['deletedAt'] == null
+          ? null
+          : DateTime.parse(json['deletedAt'] as String),
     )..timeoutAt = json['timeoutAt'] == null
         ? null
         : DateTime.parse(json['timeoutAt'] as String);
@@ -67,6 +70,7 @@ Map<String, dynamic> _$AssignModelToJson(AssignModel instance) {
   writeNotNull('canceledAt', instance.canceledAt?.toIso8601String());
   writeNotNull('timeoutAt', instance.timeoutAt?.toIso8601String());
   writeNotNull('respondedAt', instance.respondedAt?.toIso8601String());
+  writeNotNull('deletedAt', instance.deletedAt?.toIso8601String());
   return val;
 }
 

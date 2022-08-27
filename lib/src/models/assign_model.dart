@@ -1,5 +1,3 @@
-
-
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -9,7 +7,6 @@ part 'assign_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class AssignModel extends Equatable {
-
   // assign's unique id
   String guid;
   // service which is assigned for
@@ -50,43 +47,55 @@ class AssignModel extends Equatable {
   @JsonKey(includeIfNull: false)
   DateTime? timeoutAt;
 
-  @JsonKey(includeIfNull: false, name:"assignTimeoutAt",toJson: assignTimeoutToJson)
-  DateTime? get assignTimeoutAt{
-    if (timeoutAt != null){
+  @JsonKey(
+      includeIfNull: false,
+      name: "assignTimeoutAt",
+      toJson: assignTimeoutToJson)
+  DateTime? get assignTimeoutAt {
+    if (timeoutAt != null) {
       return timeoutAt;
     }
     return null;
   }
 
-  DateTime? get deliverTimeoutAt{
-    if (assignAt != null){
+  DateTime? get deliverTimeoutAt {
+    if (assignAt != null) {
       return assignAt!.add(Duration(seconds: deliverTimeoutSeconds));
     }
     return null;
   }
+
   int get maxTimeoutSeconds {
     return assignTimeoutSeconds;
   }
+
   @JsonKey(includeIfNull: false)
-  DateTime? respondedAt; // when masterUser responded this assign("AssignStateEnum.ACCEPTED" or "AssignStateEnum.REJECTED")
+  DateTime?
+      respondedAt; // when masterUser responded this assign("AssignStateEnum.ACCEPTED" or "AssignStateEnum.REJECTED")
   bool get isReplied {
     return respondedAt != null;
     // return state == AssignStateEnum.Accepted && state == AssignStateEnum.Rejected;
   }
-  bool get isTimeout{
-    if (state == AssignStateEnum.Timeout){
+
+  bool get isTimeout {
+    if (state == AssignStateEnum.Timeout) {
       return true;
     }
-    if (state == AssignStateEnum.Assigning || state == AssignStateEnum.Delivering){
-      return DateTime.now().isAfter(assignAt!.add(Duration(seconds: assignTimeoutSeconds)));
-    }else{
+    if (state == AssignStateEnum.Assigning ||
+        state == AssignStateEnum.Delivering) {
+      return DateTime.now()
+          .isAfter(assignAt!.add(Duration(seconds: assignTimeoutSeconds)));
+    } else {
       return false;
     }
   }
 
+  @JsonKey(includeIfNull: false)
+  DateTime?
+      deletedAt; // when masterUser responded this assign("AssignStateEnum.ACCEPTED" or "AssignStateEnum.REJECTED")
+
   AssignModel(
-      this.guid,
-  {
+    this.guid, {
     required this.masterUid,
     required this.serviceGuid,
     required this.orderGuid,
@@ -102,33 +111,39 @@ class AssignModel extends Equatable {
     this.deliveredAt,
     this.respondedAt,
     this.lastModifiedAt,
-  }){
+    this.deletedAt,
+  }) {
     // timeoutAt = assignAt?.add(Duration(seconds: assignTimeoutSeconds + deliverTimeoutSeconds));
   }
-  factory AssignModel.fromJson(Map<String, dynamic> json) => _$AssignModelFromJson(json);
+  factory AssignModel.fromJson(Map<String, dynamic> json) =>
+      _$AssignModelFromJson(json);
   Map<String, dynamic> toJson() => _$AssignModelToJson(this);
 
-  void cancel(){
+  void cancel() {
     state = AssignStateEnum.Canceled;
     canceledAt = DateTime.now();
   }
-  void assign(){
+
+  void assign() {
     assignAt = DateTime.now();
     timeoutAt = assignAt!.add(Duration(seconds: assignTimeoutSeconds));
     state = AssignStateEnum.Delivering;
-    if (canceledAt != null){
+    if (canceledAt != null) {
       canceledAt = null;
     }
   }
-  void deliver(){
+
+  void deliver() {
     deliveredAt = DateTime.now();
     state = AssignStateEnum.Assigning;
   }
-  void accept(){
+
+  void accept() {
     state = AssignStateEnum.Accepted;
     respondedAt = DateTime.now();
   }
-  void reject(){
+
+  void reject() {
     state = AssignStateEnum.Rejected;
     respondedAt = DateTime.now();
   }
@@ -144,7 +159,8 @@ class AssignModel extends Equatable {
   };
 
   @override
-  List<Object?> get props => [guid,serviceGuid,masterUid,state,assignAt,assignTimeoutAt];
+  List<Object?> get props =>
+      [guid, serviceGuid, masterUid, state, assignAt, assignTimeoutAt];
 }
 
 String? assignTimeoutToJson(DateTime? objectField) {
