@@ -1,4 +1,3 @@
-
 // export 'appointment_model.dart';
 // export 'assign_model.dart';
 // export 'friend_list_user_ao.dart';
@@ -39,3 +38,5 @@ export 'sortable_service.dart';
 export 'subscribe_model.dart';
 export 'subscribe_user_model.dart';
 export 'user_model.dart';
+
+export 'assign_event_model.dart';
