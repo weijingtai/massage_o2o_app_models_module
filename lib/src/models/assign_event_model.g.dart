@@ -26,7 +26,7 @@ Map<String, dynamic> _$AssignEventModelToJson(AssignEventModel instance) =>
 const _$AssignEventEnumEnumMap = {
   AssignEventEnum.Init: 'Init',
   AssignEventEnum.Send: 'Send',
-  AssignEventEnum.Delivered: 'Delivered',
+  AssignEventEnum.Received: 'Received',
   AssignEventEnum.Cancel: 'Cancel',
   AssignEventEnum.Reject: 'Reject',
   AssignEventEnum.Accept: 'Accept',
