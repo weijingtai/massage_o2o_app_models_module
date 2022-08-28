@@ -6,8 +6,8 @@ enum AssignEventEnum {
 
   @JsonValue("Send")
   Send,
-  @JsonValue("Delivered")
-  Delivered,
+  @JsonValue("Received")
+  Received,
 
   @JsonValue("Cancel")
   Cancel,
