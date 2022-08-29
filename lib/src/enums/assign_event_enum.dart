@@ -16,5 +16,8 @@ enum AssignEventEnum {
   @JsonValue("Accept")
   Accept,
   @JsonValue("Timeout")
-  Timeout
+  Timeout,
+
+  @JsonValue("Delete")
+  Delete
 }

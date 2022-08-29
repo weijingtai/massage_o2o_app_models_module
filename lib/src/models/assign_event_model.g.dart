@@ -31,4 +31,5 @@ const _$AssignEventEnumEnumMap = {
   AssignEventEnum.Reject: 'Reject',
   AssignEventEnum.Accept: 'Accept',
   AssignEventEnum.Timeout: 'Timeout',
+  AssignEventEnum.Delete: 'Delete',
 };
