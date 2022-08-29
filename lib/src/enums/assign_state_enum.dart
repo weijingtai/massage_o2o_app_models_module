@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
-enum AssignStateEnum{
 
+enum AssignStateEnum {
   @JsonValue("Preparing")
-  Preparing,  // 准备中
+  Preparing, // 准备中
   @JsonValue("Delivering")
   Delivering, // 指派正在发送到master端
   @JsonValue("Assigning")
@@ -14,5 +14,7 @@ enum AssignStateEnum{
   @JsonValue("Accepted")
   Accepted, // 对方接受
   @JsonValue("Timeout")
-  Timeout  // 超时
+  Timeout, // 超时
+  @JsonValue("Deleted")
+  Deleted // Deleted
 }

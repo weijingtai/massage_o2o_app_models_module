@@ -76,4 +76,5 @@ const _$AssignStateEnumEnumMap = {
   AssignStateEnum.Rejected: 'Rejected',
   AssignStateEnum.Accepted: 'Accepted',
   AssignStateEnum.Timeout: 'Timeout',
+  AssignStateEnum.Deleted: 'Deleted',
 };
