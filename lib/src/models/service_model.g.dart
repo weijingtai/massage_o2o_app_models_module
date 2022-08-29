@@ -97,4 +97,5 @@ const _$ServiceStateEnumEnumMap = {
   ServiceStateEnum.Completed: 'Completed',
   ServiceStateEnum.Canceled: 'Canceled',
   ServiceStateEnum.Replaced: 'Replaced',
+  ServiceStateEnum.Deleted: 'Deleted',
 };
