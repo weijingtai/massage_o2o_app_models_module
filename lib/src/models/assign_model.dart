@@ -119,6 +119,7 @@ class AssignModel extends Equatable {
       _$AssignModelFromJson(json);
   Map<String, dynamic> toJson() => _$AssignModelToJson(this);
 
+  bool get isDeleted => deletedAt != null;
   void cancel() {
     state = AssignStateEnum.Canceled;
     canceledAt = DateTime.now();
