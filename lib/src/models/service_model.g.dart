@@ -40,6 +40,9 @@ ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
       appointmentStartAt: json['appointmentStartAt'] == null
           ? null
           : DateTime.parse(json['appointmentStartAt'] as String),
+      canceledAt: json['canceledAt'] == null
+          ? null
+          : DateTime.parse(json['canceledAt'] as String),
       serviceDurationUpdateList:
           (json['serviceDurationUpdateList'] as List<dynamic>?)
                   ?.map((e) => ServiceDurationOperationUnit.fromJson(
@@ -72,6 +75,7 @@ Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
   writeNotNull('lastModifiedAt', instance.lastModifiedAt?.toIso8601String());
   writeNotNull('lastModifiedByUid', instance.lastModifiedByUid);
   writeNotNull('deletedAt', instance.deletedAt?.toIso8601String());
+  writeNotNull('canceledAt', instance.canceledAt?.toIso8601String());
   writeNotNull('assignGuid', instance.assignGuid);
   writeNotNull('startedAt', instance.startedAt?.toIso8601String());
   writeNotNull(
