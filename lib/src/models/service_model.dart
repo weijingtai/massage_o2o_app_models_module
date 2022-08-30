@@ -77,30 +77,31 @@ class ServiceModel {
   // // late Assign assign;
   // late List<ServiceEventUnit> _eventUpdateList;
   // late List<ServiceStateUnit> _stateUpdateList;
-  List<ServiceDurationOperationUnit> serviceDurationUpdateList = [];
+  // List<ServiceDurationOperationUnit> serviceDurationUpdateList = [];
 
-  ServiceModel(
-      {required this.guid,
-      required this.orderGuid,
-      required this.seqInOrder,
-      required this.creatorUid,
-      required this.state,
-      required this.createdAt,
-      this.completedSeconds = 0,
-      this.replacedByServiceGuid,
-      this.assignedMasterUid,
-      this.totalServiceMinutes,
-      this.lastModifiedAt,
-      this.lastModifiedByUid,
-      this.deletedAt,
-      this.assignGuid,
-      this.startedAt,
-      this.assertCompletedAt,
-      this.doneAt,
-      this.acceptedAt,
-      this.appointmentStartAt,
-      this.canceledAt,
-      this.serviceDurationUpdateList = const []});
+  ServiceModel({
+    required this.guid,
+    required this.orderGuid,
+    required this.seqInOrder,
+    required this.creatorUid,
+    required this.state,
+    required this.createdAt,
+    this.completedSeconds = 0,
+    this.replacedByServiceGuid,
+    this.assignedMasterUid,
+    this.totalServiceMinutes,
+    this.lastModifiedAt,
+    this.lastModifiedByUid,
+    this.deletedAt,
+    this.assignGuid,
+    this.startedAt,
+    this.assertCompletedAt,
+    this.doneAt,
+    this.acceptedAt,
+    this.appointmentStartAt,
+    this.canceledAt,
+    // this.serviceDurationUpdateList = const []
+  });
 
   factory ServiceModel.fromJson(Map<String, dynamic> json) =>
       _$ServiceModelFromJson(json);
