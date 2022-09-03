@@ -7,13 +7,13 @@ part 'resume_serving_event_model.g.dart';
 
 @JsonSerializable()
 class ResumeServingEventModel extends ServingEventModel {
-  late DateTime asseretCompltedAt;
+  late DateTime assertCompletedAt;
   ResumeServingEventModel({
     required String guid,
     required String serviceGuid,
     required String operatorUid,
     required DateTime operatedAt,
-    required this.asseretCompltedAt,
+    required this.assertCompletedAt,
   }) : super(
           guid: guid,
           serviceGuid: serviceGuid,

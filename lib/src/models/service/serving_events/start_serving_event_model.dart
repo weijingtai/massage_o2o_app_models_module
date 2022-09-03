@@ -7,13 +7,13 @@ part 'start_serving_event_model.g.dart';
 
 @JsonSerializable()
 class StartServingEventModel extends ServingEventModel {
-  DateTime asseretCompltedAt;
+  DateTime assertCompletedAt;
   StartServingEventModel({
     required String guid,
     required String serviceGuid,
     required String operatorUid,
     required DateTime operatedAt,
-    required this.asseretCompltedAt,
+    required this.assertCompletedAt,
   }) : super(
           guid: guid,
           serviceGuid: serviceGuid,

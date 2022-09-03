@@ -12,7 +12,7 @@ StartServingEventModel _$StartServingEventModelFromJson(Map json) =>
       serviceGuid: json['serviceGuid'] as String,
       operatorUid: json['operatorUid'] as String,
       operatedAt: DateTime.parse(json['operatedAt'] as String),
-      asseretCompltedAt: DateTime.parse(json['asseretCompltedAt'] as String),
+      assertCompletedAt: DateTime.parse(json['assertCompletedAt'] as String),
     )
       ..type = $enumDecode(_$ServiceEventTypeEnumEnumMap, json['type'])
       ..event = $enumDecode(_$ServingEventTypeEnumEnumMap, json['event']);
@@ -26,7 +26,7 @@ Map<String, dynamic> _$StartServingEventModelToJson(
       'operatedAt': instance.operatedAt.toIso8601String(),
       'type': _$ServiceEventTypeEnumEnumMap[instance.type]!,
       'event': _$ServingEventTypeEnumEnumMap[instance.event]!,
-      'asseretCompltedAt': instance.asseretCompltedAt.toIso8601String(),
+      'assertCompletedAt': instance.assertCompletedAt.toIso8601String(),
     };
 
 const _$ServiceEventTypeEnumEnumMap = {
