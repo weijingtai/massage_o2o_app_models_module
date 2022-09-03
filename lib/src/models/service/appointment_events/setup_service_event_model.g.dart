@@ -11,7 +11,7 @@ SetupServiceEventModel _$SetupServiceEventModelFromJson(Map json) =>
       guid: json['guid'] as String,
       serviceGuid: json['serviceGuid'] as String,
       operatorUid: json['operatorUid'] as String,
-      operatorAt: DateTime.parse(json['operatorAt'] as String),
+      operatedAt: DateTime.parse(json['operatedAt'] as String),
       appointmentStartAt: DateTime.parse(json['appointmentStartAt'] as String),
       totalServiceMinutes: json['totalServiceMinutes'] as int,
     )
@@ -24,7 +24,7 @@ Map<String, dynamic> _$SetupServiceEventModelToJson(
       'guid': instance.guid,
       'serviceGuid': instance.serviceGuid,
       'operatorUid': instance.operatorUid,
-      'operatorAt': instance.operatorAt.toIso8601String(),
+      'operatedAt': instance.operatedAt.toIso8601String(),
       'type': _$ServiceEventTypeEnumEnumMap[instance.type]!,
       'event': _$AppointmentEventTypeEnumEnumMap[instance.event]!,
       'appointmentStartAt': instance.appointmentStartAt.toIso8601String(),

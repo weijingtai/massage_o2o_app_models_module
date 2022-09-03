@@ -11,7 +11,7 @@ AppointmentServiceEventModel _$AppointmentServiceEventModelFromJson(Map json) =>
       guid: json['guid'] as String,
       serviceGuid: json['serviceGuid'] as String,
       operatorUid: json['operatorUid'] as String,
-      operatorAt: DateTime.parse(json['operatorAt'] as String),
+      operatedAt: DateTime.parse(json['operatedAt'] as String),
       event: $enumDecode(_$AppointmentEventTypeEnumEnumMap, json['event']),
     )..type = $enumDecode(_$ServiceEventTypeEnumEnumMap, json['type']);
 
@@ -21,7 +21,7 @@ Map<String, dynamic> _$AppointmentServiceEventModelToJson(
       'guid': instance.guid,
       'serviceGuid': instance.serviceGuid,
       'operatorUid': instance.operatorUid,
-      'operatorAt': instance.operatorAt.toIso8601String(),
+      'operatedAt': instance.operatedAt.toIso8601String(),
       'type': _$ServiceEventTypeEnumEnumMap[instance.type]!,
       'event': _$AppointmentEventTypeEnumEnumMap[instance.event]!,
     };

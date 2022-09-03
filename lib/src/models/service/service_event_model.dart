@@ -7,13 +7,13 @@ class ServiceEventModel {
   late String guid;
   late String serviceGuid;
   late String operatorUid;
-  late DateTime operatorAt;
+  late DateTime operatedAt;
   late ServiceEventTypeEnum type;
   ServiceEventModel({
     required this.guid,
     required this.serviceGuid,
     required this.operatorUid,
-    required this.operatorAt,
+    required this.operatedAt,
     required this.type,
   });
   factory ServiceEventModel.fromJson(Map<String, dynamic> json) =>

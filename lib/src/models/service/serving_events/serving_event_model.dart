@@ -12,13 +12,13 @@ class ServingEventModel extends ServiceEventModel {
     required String guid,
     required String serviceGuid,
     required String operatorUid,
-    required DateTime operatorAt,
+    required DateTime operatedAt,
     required this.event,
   }) : super(
           guid: guid,
           serviceGuid: serviceGuid,
           operatorUid: operatorUid,
-          operatorAt: operatorAt,
+          operatedAt: operatedAt,
           type: ServiceEventTypeEnum.Serving,
         );
   factory ServingEventModel.fromJson(Map<String, dynamic> json) =>

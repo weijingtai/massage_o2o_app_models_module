@@ -12,7 +12,7 @@ UpdateAppointmentStartAtEventModel _$UpdateAppointmentStartAtEventModelFromJson(
       guid: json['guid'] as String,
       serviceGuid: json['serviceGuid'] as String,
       operatorUid: json['operatorUid'] as String,
-      operatorAt: DateTime.parse(json['operatorAt'] as String),
+      operatedAt: DateTime.parse(json['operatedAt'] as String),
       from: DateTime.parse(json['from'] as String),
       to: DateTime.parse(json['to'] as String),
     )
@@ -25,7 +25,7 @@ Map<String, dynamic> _$UpdateAppointmentStartAtEventModelToJson(
       'guid': instance.guid,
       'serviceGuid': instance.serviceGuid,
       'operatorUid': instance.operatorUid,
-      'operatorAt': instance.operatorAt.toIso8601String(),
+      'operatedAt': instance.operatedAt.toIso8601String(),
       'type': _$ServiceEventTypeEnumEnumMap[instance.type]!,
       'event': _$AppointmentEventTypeEnumEnumMap[instance.event]!,
       'from': instance.from.toIso8601String(),

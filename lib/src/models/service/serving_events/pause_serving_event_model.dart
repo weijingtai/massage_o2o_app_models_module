@@ -12,13 +12,13 @@ class PauseServingEventModel extends ServingEventModel {
     required String guid,
     required String serviceGuid,
     required String operatorUid,
-    required DateTime operatorAt,
+    required DateTime operatedAt,
     required this.completedSeconds,
   }) : super(
           guid: guid,
           serviceGuid: serviceGuid,
           operatorUid: operatorUid,
-          operatorAt: operatorAt,
+          operatedAt: operatedAt,
           event: ServingEventTypeEnum.Pause,
         );
   factory PauseServingEventModel.fromJson(Map<String, dynamic> json) =>

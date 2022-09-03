@@ -12,13 +12,13 @@ class StartServingEventModel extends ServingEventModel {
     required String guid,
     required String serviceGuid,
     required String operatorUid,
-    required DateTime operatorAt,
+    required DateTime operatedAt,
     required this.asseretCompltedAt,
   }) : super(
           guid: guid,
           serviceGuid: serviceGuid,
           operatorUid: operatorUid,
-          operatorAt: operatorAt,
+          operatedAt: operatedAt,
           event: ServingEventTypeEnum.Start,
         );
   factory StartServingEventModel.fromJson(Map<String, dynamic> json) =>

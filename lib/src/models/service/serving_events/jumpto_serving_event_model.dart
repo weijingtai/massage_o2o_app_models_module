@@ -13,14 +13,14 @@ class JumpToServingEventModel extends ServingEventModel {
     required String guid,
     required String serviceGuid,
     required String operatorUid,
-    required DateTime operatorAt,
+    required DateTime operatedAt,
     required this.from,
     required this.to,
   }) : super(
           guid: guid,
           serviceGuid: serviceGuid,
           operatorUid: operatorUid,
-          operatorAt: operatorAt,
+          operatedAt: operatedAt,
           event: ServingEventTypeEnum.JumpTo,
         );
   factory JumpToServingEventModel.fromJson(Map<String, dynamic> json) =>

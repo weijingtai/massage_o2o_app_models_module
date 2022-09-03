@@ -11,7 +11,7 @@ ResetServingEventModel _$ResetServingEventModelFromJson(Map json) =>
       guid: json['guid'] as String,
       serviceGuid: json['serviceGuid'] as String,
       operatorUid: json['operatorUid'] as String,
-      operatorAt: DateTime.parse(json['operatorAt'] as String),
+      operatedAt: DateTime.parse(json['operatedAt'] as String),
       completedSeconds: json['completedSeconds'] as int,
     )
       ..type = $enumDecode(_$ServiceEventTypeEnumEnumMap, json['type'])
@@ -23,7 +23,7 @@ Map<String, dynamic> _$ResetServingEventModelToJson(
       'guid': instance.guid,
       'serviceGuid': instance.serviceGuid,
       'operatorUid': instance.operatorUid,
-      'operatorAt': instance.operatorAt.toIso8601String(),
+      'operatedAt': instance.operatedAt.toIso8601String(),
       'type': _$ServiceEventTypeEnumEnumMap[instance.type]!,
       'event': _$ServingEventTypeEnumEnumMap[instance.event]!,
       'completedSeconds': instance.completedSeconds,

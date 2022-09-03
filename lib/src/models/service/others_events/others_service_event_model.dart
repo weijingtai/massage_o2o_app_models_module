@@ -12,13 +12,13 @@ class OthersServiceEventModel extends ServiceEventModel {
     required String guid,
     required String serviceGuid,
     required String operatorUid,
-    required DateTime operatorAt,
+    required DateTime operatedAt,
     required this.event,
   }) : super(
           guid: guid,
           serviceGuid: serviceGuid,
           operatorUid: operatorUid,
-          operatorAt: operatorAt,
+          operatedAt: operatedAt,
           type: ServiceEventTypeEnum.Others,
         );
   factory OthersServiceEventModel.fromJson(Map<String, dynamic> json) =>
@@ -29,26 +29,26 @@ class OthersServiceEventModel extends ServiceEventModel {
     required String guid,
     required String serviceGuid,
     required String operatorUid,
-    required DateTime operatorAt,
+    required DateTime operatedAt,
   }) =>
       OthersServiceEventModel(
         guid: guid,
         serviceGuid: serviceGuid,
         operatorUid: operatorUid,
-        operatorAt: operatorAt,
+        operatedAt: operatedAt,
         event: OthersEventTypeEnum.CustomerArrived,
       );
   factory OthersServiceEventModel.masterOnTheWay({
     required String guid,
     required String serviceGuid,
     required String operatorUid,
-    required DateTime operatorAt,
+    required DateTime operatedAt,
   }) =>
       OthersServiceEventModel(
         guid: guid,
         serviceGuid: serviceGuid,
         operatorUid: operatorUid,
-        operatorAt: operatorAt,
+        operatedAt: operatedAt,
         event: OthersEventTypeEnum.CustomerArrived,
       );
 }

@@ -12,7 +12,7 @@ UpdateTotalServiceMinutesEventModel
           guid: json['guid'] as String,
           serviceGuid: json['serviceGuid'] as String,
           operatorUid: json['operatorUid'] as String,
-          operatorAt: DateTime.parse(json['operatorAt'] as String),
+          operatedAt: DateTime.parse(json['operatedAt'] as String),
           from: json['from'] as int,
           to: json['to'] as int,
         )
@@ -26,7 +26,7 @@ Map<String, dynamic> _$UpdateTotalServiceMinutesEventModelToJson(
       'guid': instance.guid,
       'serviceGuid': instance.serviceGuid,
       'operatorUid': instance.operatorUid,
-      'operatorAt': instance.operatorAt.toIso8601String(),
+      'operatedAt': instance.operatedAt.toIso8601String(),
       'type': _$ServiceEventTypeEnumEnumMap[instance.type]!,
       'event': _$AppointmentEventTypeEnumEnumMap[instance.event]!,
       'from': instance.from,
