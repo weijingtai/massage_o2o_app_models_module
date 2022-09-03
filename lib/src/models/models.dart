@@ -41,3 +41,4 @@ export 'user_model.dart';
 export 'assign_event_model.dart';
 
 export 'service/service_events.dart';
+export 'service/service_event_model.dart';
