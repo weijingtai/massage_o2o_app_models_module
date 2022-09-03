@@ -2,7 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '../enums/enums.dart';
 import 'assign_model.dart';
-import 'service_duration_operation_unit.dart';
 
 // import 'service_state_unit.dart';
 // import 'service_event_unit.dart';

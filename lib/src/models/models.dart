@@ -29,7 +29,6 @@ export 'master_user_model.dart';
 export 'online_master_user_model.dart';
 export 'order_assign_notification_model.dart';
 export 'order_model.dart';
-export 'service_duration_operation_unit.dart';
 // export 'service_event_unit.dart';
 export 'service_model.dart';
 // export 'service_state_unit.dart';
@@ -40,3 +39,5 @@ export 'subscribe_user_model.dart';
 export 'user_model.dart';
 
 export 'assign_event_model.dart';
+
+export 'service/service_events.dart';
