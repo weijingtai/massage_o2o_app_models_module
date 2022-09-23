@@ -85,6 +85,7 @@ const _$ServiceStateEnumEnumMap = {
   ServiceStateEnum.Preparing: 'Preparing',
   ServiceStateEnum.Assigning: 'Assigning',
   ServiceStateEnum.Waiting: 'Waiting',
+  ServiceStateEnum.MasterSetSail: 'MasterSetSail',
   ServiceStateEnum.CustomerArrived: 'CustomerArrived',
   ServiceStateEnum.Running: 'Running',
   ServiceStateEnum.Serving: 'Serving',

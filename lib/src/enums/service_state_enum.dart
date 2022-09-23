@@ -9,6 +9,8 @@ enum ServiceStateEnum {
   Assigning,
   @JsonValue("Waiting")
   Waiting,
+  @JsonValue("MasterSetSail")
+  MasterSetSail,
   @JsonValue("CustomerArrived")
   CustomerArrived,
   @JsonValue("Running")
