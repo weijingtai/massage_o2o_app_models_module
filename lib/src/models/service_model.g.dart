@@ -28,6 +28,9 @@ ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
       startedAt: json['startedAt'] == null
           ? null
           : DateTime.parse(json['startedAt'] as String),
+      pausedAt: json['pausedAt'] == null
+          ? null
+          : DateTime.parse(json['pausedAt'] as String),
       assertCompletedAt: json['assertCompletedAt'] == null
           ? null
           : DateTime.parse(json['assertCompletedAt'] as String),
@@ -72,6 +75,7 @@ Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
   writeNotNull('canceledAt', instance.canceledAt?.toIso8601String());
   writeNotNull('assignGuid', instance.assignGuid);
   writeNotNull('startedAt', instance.startedAt?.toIso8601String());
+  writeNotNull('pausedAt', instance.pausedAt?.toIso8601String());
   writeNotNull(
       'assertCompletedAt', instance.assertCompletedAt?.toIso8601String());
   writeNotNull('acceptedAt', instance.acceptedAt?.toIso8601String());

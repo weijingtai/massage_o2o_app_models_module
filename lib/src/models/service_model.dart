@@ -56,6 +56,11 @@ class ServiceModel {
   @JsonKey(includeIfNull: false)
   DateTime? startedAt;
 
+  // field should be set when service's state turn to Pause
+  // this field should be null when "assertCompletedAt" is not null
+  @JsonKey(includeIfNull: false)
+  DateTime? pausedAt;
+
   /// filed will be used as asset service is processing or completed when client side lost connection.
   ///
   /// this field should be calculate with startedAt set by startedAt.add(Duration(minutes: serviceDuration));
@@ -94,6 +99,7 @@ class ServiceModel {
     this.deletedAt,
     this.assignGuid,
     this.startedAt,
+    this.pausedAt,
     this.assertCompletedAt,
     this.doneAt,
     this.acceptedAt,
