@@ -42,3 +42,5 @@ export 'assign_event_model.dart';
 
 export 'service/service_events.dart';
 export 'service/service_event_model.dart';
+
+export 'master_location_model.dart';
