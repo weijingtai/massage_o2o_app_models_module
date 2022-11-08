@@ -15,6 +15,10 @@ OnlineMasterUserModel _$OnlineMasterUserModelFromJson(Map json) =>
       lastModifiedAt: json['lastModifiedAt'] == null
           ? null
           : DateTime.parse(json['lastModifiedAt'] as String),
+      location: json['location'] == null
+          ? null
+          : MasterLocationModel.fromJson(
+              Map<String, dynamic>.from(json['location'] as Map)),
       masterServiceStatus: $enumDecodeNullable(
           _$MasterServiceStatusEnumEnumMap, json['masterServiceStatus']),
       appointments: (json['appointments'] as List<dynamic>?)
@@ -48,6 +52,7 @@ Map<String, dynamic> _$OnlineMasterUserModelToJson(
   writeNotNull('masterServiceStatus',
       _$MasterServiceStatusEnumEnumMap[instance.masterServiceStatus]);
   writeNotNull('lastModifiedAt', instance.lastModifiedAt?.toIso8601String());
+  writeNotNull('location', instance.location?.toJson());
   writeNotNull('servingService', instance.servingService?.toJson());
   writeNotNull(
       'appointments', instance.appointments?.map((e) => e.toJson()).toList());
