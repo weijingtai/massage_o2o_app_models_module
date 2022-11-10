@@ -5,7 +5,8 @@ part 'master_location_model.g.dart';
 @JsonSerializable()
 class MasterLocationModel {
   Coordinate coordinate;
-  MasterLocationModel({required this.coordinate});
+  String uid;
+  MasterLocationModel({required this.uid, required this.coordinate});
 
   factory MasterLocationModel.fromJson(Map<String, dynamic> json) =>
       _$MasterLocationModelFromJson(json);
