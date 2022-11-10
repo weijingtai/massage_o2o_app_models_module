@@ -7,7 +7,7 @@ part 'redis_coordinate.g.dart';
 @JsonSerializable()
 class RedisCoordinate extends Coordinate {
   String coordinateType = "redis";
-  String geohash;
+  int geohash;
   RedisCoordinate(
       {required double latitude,
       required double longitude,
