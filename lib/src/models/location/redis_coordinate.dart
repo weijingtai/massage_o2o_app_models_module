@@ -8,9 +8,13 @@ part 'redis_coordinate.g.dart';
 class RedisCoordinate extends Coordinate {
   String coordinateType = "redis";
   int geohash;
+  double rangeDistance;
+  String rangeDistanceUnit;
   RedisCoordinate(
       {required double latitude,
       required double longitude,
+      required this.rangeDistanceUnit,
+      required this.rangeDistance,
       required this.geohash})
       : super(latitude: latitude, longitude: longitude);
 

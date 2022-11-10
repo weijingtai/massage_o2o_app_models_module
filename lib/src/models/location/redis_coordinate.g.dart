@@ -9,6 +9,8 @@ part of 'redis_coordinate.dart';
 RedisCoordinate _$RedisCoordinateFromJson(Map json) => RedisCoordinate(
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
+      rangeDistanceUnit: json['rangeDistanceUnit'] as String,
+      rangeDistance: (json['rangeDistance'] as num).toDouble(),
       geohash: json['geohash'] as int,
     )..coordinateType = json['coordinateType'] as String;
 
@@ -18,4 +20,6 @@ Map<String, dynamic> _$RedisCoordinateToJson(RedisCoordinate instance) =>
       'longitude': instance.longitude,
       'coordinateType': instance.coordinateType,
       'geohash': instance.geohash,
+      'rangeDistance': instance.rangeDistance,
+      'rangeDistanceUnit': instance.rangeDistanceUnit,
     };
