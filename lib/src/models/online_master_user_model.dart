@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import '../enums/enums.dart';
-import 'master_location_model.dart';
+import './location/master_location_model.dart';
 import 'serving_service_base_model.dart';
 import 'appointment_service_base_model.dart';
 import 'leave_service_base_model.dart';
