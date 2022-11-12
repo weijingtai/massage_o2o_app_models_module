@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import '../enums/enums.dart';
 import './location/master_location_model.dart';
+import 'location/coordinate.dart';
 import 'serving_service_base_model.dart';
 import 'appointment_service_base_model.dart';
 import 'leave_service_base_model.dart';
@@ -15,7 +16,7 @@ class OnlineMasterUserModel {
 
   MasterServiceStatusEnum? masterServiceStatus;
   DateTime? lastModifiedAt;
-  MasterLocationModel? location;
+  Coordinate? location;
   ServingServiceBaseModel? servingService;
   List<AppointmentServiceBaseModel>? appointments;
   List<LeaveServiceBaseModel>? leavingList;

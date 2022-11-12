@@ -17,7 +17,7 @@ OnlineMasterUserModel _$OnlineMasterUserModelFromJson(Map json) =>
           : DateTime.parse(json['lastModifiedAt'] as String),
       location: json['location'] == null
           ? null
-          : MasterLocationModel.fromJson(
+          : Coordinate.fromJson(
               Map<String, dynamic>.from(json['location'] as Map)),
       masterServiceStatus: $enumDecodeNullable(
           _$MasterServiceStatusEnumEnumMap, json['masterServiceStatus']),
