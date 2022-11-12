@@ -1,10 +1,9 @@
-
 import 'package:massage_o2o_app_models_module/enums.dart';
 import 'package:massage_o2o_app_models_module/src/models/assign_model.dart';
 import 'package:test/test.dart';
 
-void main(){
-  test("test seri",(){
+void main() {
+  test("test seri", () {
     var assign = AssignModel("",
         masterUid: "",
         serviceGuid: "",
