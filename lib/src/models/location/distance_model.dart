@@ -20,7 +20,7 @@ class DistanceModel {
   String? travelDistanceUnit;
 
   // elapsed-time for travelDistance
-  double? elapsedTime;
+  int? elapsedTime;
   // seconds, minutes
   String? elapsedTimeUnit;
 
