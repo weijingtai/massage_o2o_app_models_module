@@ -21,18 +21,17 @@ OnlineMasterUserModel _$OnlineMasterUserModelFromJson(Map json) =>
               Map<String, dynamic>.from(json['location'] as Map)),
       masterServiceStatus: $enumDecodeNullable(
           _$MasterServiceStatusEnumEnumMap, json['masterServiceStatus']),
-      appointments: (json['appointments'] as List<dynamic>?)
-          ?.map((e) => AppointmentServiceBaseModel.fromJson(
-              Map<String, dynamic>.from(e as Map)))
-          .toList(),
-      servingService: json['servingService'] == null
+      appointments: json['appointments'] == null
           ? null
-          : ServingServiceBaseModel.fromJson(
-              Map<String, dynamic>.from(json['servingService'] as Map)),
-      leavingList: (json['leavingList'] as List<dynamic>?)
-          ?.map((e) => LeaveServiceBaseModel.fromJson(
-              Map<String, dynamic>.from(e as Map)))
-          .toList(),
+          : (json['appointments'] as List<Map<String, dynamic>>)
+              .map((e) => AppointmentServiceBaseModel.fromJson(e))
+              .toList(),
+      servingService: json['servingService'],
+      leavingList: json['leavingList'] == null
+          ? null
+          : (json['leavingList'] as List<Map<String, dynamic>>)
+              .map((e) => LeaveServiceBaseModel.fromJson(e))
+              .toList(),
     );
 
 Map<String, dynamic> _$OnlineMasterUserModelToJson(
@@ -53,11 +52,9 @@ Map<String, dynamic> _$OnlineMasterUserModelToJson(
       _$MasterServiceStatusEnumEnumMap[instance.masterServiceStatus]);
   writeNotNull('lastModifiedAt', instance.lastModifiedAt?.toIso8601String());
   writeNotNull('location', instance.location?.toJson());
-  writeNotNull('servingService', instance.servingService?.toJson());
-  writeNotNull(
-      'appointments', instance.appointments?.map((e) => e.toJson()).toList());
-  writeNotNull(
-      'leavingList', instance.leavingList?.map((e) => e.toJson()).toList());
+  writeNotNull('servingService', instance.servingService);
+  writeNotNull('appointments', instance.appointments);
+  writeNotNull('leavingList', instance.leavingList);
   return val;
 }
 

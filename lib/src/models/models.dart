@@ -16,12 +16,10 @@
 // export 'subscribe_user_model.dart';
 // export 'online_master_user_model.dart';
 
-export 'appointment_service_base_model.dart';
 export 'appointment_model.dart';
 export 'assign_model.dart';
 export 'base_user_info.dart';
 export 'host_user_model.dart';
-export 'leave_service_base_model.dart';
 export 'master_user_model.dart';
 export 'online_master_user_model.dart';
 export 'order_assign_notification_model.dart';
@@ -29,8 +27,6 @@ export 'order_model.dart';
 // export 'service_event_unit.dart';
 export 'service_model.dart';
 // export 'service_state_unit.dart';
-export 'serving_service_base_model.dart';
-export 'sortable_service.dart';
 export 'subscribe_model.dart';
 export 'subscribe_user_model.dart';
 export 'user_model.dart';
@@ -46,3 +42,4 @@ export 'location/host_location_model.dart';
 export 'location/master_location_model.dart';
 export 'location/distance_model.dart';
 export 'location/redis_coordinate.dart';
+export 'service_brief/service_brief.dart';
