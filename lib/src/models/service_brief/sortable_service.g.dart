@@ -8,13 +8,22 @@ part of 'sortable_service.dart';
 
 SortableService _$SortableServiceFromJson(Map json) => SortableService(
       DateTime.parse(json['startAt'] as String),
-      DateTime.parse(json['endAt'] as String),
+      json['endAt'] == null ? null : DateTime.parse(json['endAt'] as String),
       isCanceled: json['isCanceled'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$SortableServiceToJson(SortableService instance) =>
-    <String, dynamic>{
-      'startAt': instance.startAt.toIso8601String(),
-      'endAt': instance.endAt.toIso8601String(),
-      'isCanceled': instance.isCanceled,
-    };
+Map<String, dynamic> _$SortableServiceToJson(SortableService instance) {
+  final val = <String, dynamic>{
+    'startAt': instance.startAt.toIso8601String(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('endAt', instance.endAt?.toIso8601String());
+  val['isCanceled'] = instance.isCanceled;
+  return val;
+}

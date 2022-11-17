@@ -23,8 +23,7 @@ class ServingServiceBaseModel extends SortableService {
       this.createdAt,
       {bool isCanceled = false,
       this.lastModifiedAt})
-      : super(startAt, startAt.add(Duration(minutes: serviceDurationMinutes)),
-            isCanceled: isCanceled);
+      : super(startAt, endAt, isCanceled: isCanceled);
 
   factory ServingServiceBaseModel.fromJson(Map<String, dynamic> json) =>
       _$ServingServiceBaseModelFromJson(json);

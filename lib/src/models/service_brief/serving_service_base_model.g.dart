@@ -25,13 +25,6 @@ Map<String, dynamic> _$ServingServiceBaseModelToJson(
     ServingServiceBaseModel instance) {
   final val = <String, dynamic>{
     'startAt': instance.startAt.toIso8601String(),
-    'endAt': instance.endAt.toIso8601String(),
-    'isCanceled': instance.isCanceled,
-    'storeUid': instance.storeUid,
-    'orderUid': instance.orderUid,
-    'serviceUid': instance.serviceUid,
-    'serviceDurationMinutes': instance.serviceDurationMinutes,
-    'createdAt': instance.createdAt.toIso8601String(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -40,6 +33,13 @@ Map<String, dynamic> _$ServingServiceBaseModelToJson(
     }
   }
 
+  writeNotNull('endAt', instance.endAt?.toIso8601String());
+  val['isCanceled'] = instance.isCanceled;
+  val['storeUid'] = instance.storeUid;
+  val['orderUid'] = instance.orderUid;
+  val['serviceUid'] = instance.serviceUid;
+  val['serviceDurationMinutes'] = instance.serviceDurationMinutes;
+  val['createdAt'] = instance.createdAt.toIso8601String();
   writeNotNull('lastModifiedAt', instance.lastModifiedAt?.toIso8601String());
   return val;
 }

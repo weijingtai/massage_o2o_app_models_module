@@ -20,20 +20,14 @@ AppointmentServiceBaseModel _$AppointmentServiceBaseModelFromJson(Map json) =>
           : DateTime.parse(json['lastModifiedAt'] as String),
     )
       ..startAt = DateTime.parse(json['startAt'] as String)
-      ..endAt = DateTime.parse(json['endAt'] as String);
+      ..endAt = json['endAt'] == null
+          ? null
+          : DateTime.parse(json['endAt'] as String);
 
 Map<String, dynamic> _$AppointmentServiceBaseModelToJson(
     AppointmentServiceBaseModel instance) {
   final val = <String, dynamic>{
     'startAt': instance.startAt.toIso8601String(),
-    'endAt': instance.endAt.toIso8601String(),
-    'isCanceled': instance.isCanceled,
-    'storeUid': instance.storeUid,
-    'orderUid': instance.orderUid,
-    'serviceUid': instance.serviceUid,
-    'orderedStartAt': instance.orderedStartAt.toIso8601String(),
-    'serviceDurationMinutes': instance.serviceDurationMinutes,
-    'createdAt': instance.createdAt.toIso8601String(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -42,6 +36,14 @@ Map<String, dynamic> _$AppointmentServiceBaseModelToJson(
     }
   }
 
+  writeNotNull('endAt', instance.endAt?.toIso8601String());
+  val['isCanceled'] = instance.isCanceled;
+  val['storeUid'] = instance.storeUid;
+  val['orderUid'] = instance.orderUid;
+  val['serviceUid'] = instance.serviceUid;
+  val['orderedStartAt'] = instance.orderedStartAt.toIso8601String();
+  val['serviceDurationMinutes'] = instance.serviceDurationMinutes;
+  val['createdAt'] = instance.createdAt.toIso8601String();
   writeNotNull('lastModifiedAt', instance.lastModifiedAt?.toIso8601String());
   return val;
 }

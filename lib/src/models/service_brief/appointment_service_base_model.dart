@@ -3,7 +3,7 @@ import 'sortable_service.dart';
 part 'appointment_service_base_model.g.dart';
 
 @JsonSerializable()
-class AppointmentServiceBaseModel extends SortableService{
+class AppointmentServiceBaseModel extends SortableService {
   String storeUid;
   String orderUid;
   String serviceUid;
@@ -12,25 +12,22 @@ class AppointmentServiceBaseModel extends SortableService{
   DateTime createdAt;
   DateTime? lastModifiedAt;
 
-  AppointmentServiceBaseModel(
-      this.storeUid,
-      this.orderUid,
-      this.serviceUid,
-      this.orderedStartAt,
-      this.serviceDurationMinutes,
-      this.createdAt,
-      {
-        bool isCanceled = false,
-        this.lastModifiedAt
-      }):super(orderedStartAt,orderedStartAt.add(Duration(minutes: serviceDurationMinutes)),isCanceled :isCanceled);
+  AppointmentServiceBaseModel(this.storeUid, this.orderUid, this.serviceUid,
+      this.orderedStartAt, this.serviceDurationMinutes, this.createdAt,
+      {bool isCanceled = false, this.lastModifiedAt})
+      : super(orderedStartAt,
+            orderedStartAt.add(Duration(minutes: serviceDurationMinutes)),
+            isCanceled: isCanceled);
 
-  DateTime get orderedEndAt{
+  DateTime get orderedEndAt {
     return orderedStartAt.add(Duration(minutes: serviceDurationMinutes));
   }
+
   bool get isTodayAppointment {
     return orderedStartAt.difference(DateTime.now()).inDays == 0;
   }
 
-  factory AppointmentServiceBaseModel.fromJson(Map<String, dynamic> json) => _$AppointmentServiceBaseModelFromJson(json);
+  factory AppointmentServiceBaseModel.fromJson(Map<String, dynamic> json) =>
+      _$AppointmentServiceBaseModelFromJson(json);
   Map<String, dynamic> toJson() => _$AppointmentServiceBaseModelToJson(this);
 }
