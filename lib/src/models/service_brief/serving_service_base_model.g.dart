@@ -12,10 +12,11 @@ ServingServiceBaseModel _$ServingServiceBaseModelFromJson(Map json) =>
       json['orderUid'] as String,
       json['serviceUid'] as String,
       DateTime.parse(json['startAt'] as String),
-      DateTime.parse(json['endAt'] as String),
+      json['endAt'] == null ? null : DateTime.parse(json['endAt'] as String),
       json['serviceDurationMinutes'] as int,
       DateTime.parse(json['createdAt'] as String),
       isCanceled: json['isCanceled'] as bool? ?? false,
+      completedSeconds: json['completedSeconds'] as int? ?? 0,
       lastModifiedAt: json['lastModifiedAt'] == null
           ? null
           : DateTime.parse(json['lastModifiedAt'] as String),
@@ -41,5 +42,6 @@ Map<String, dynamic> _$ServingServiceBaseModelToJson(
   val['serviceDurationMinutes'] = instance.serviceDurationMinutes;
   val['createdAt'] = instance.createdAt.toIso8601String();
   writeNotNull('lastModifiedAt', instance.lastModifiedAt?.toIso8601String());
+  val['completedSeconds'] = instance.completedSeconds;
   return val;
 }

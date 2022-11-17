@@ -12,6 +12,7 @@ class ServingServiceBaseModel extends SortableService {
   int serviceDurationMinutes;
   DateTime createdAt;
   DateTime? lastModifiedAt;
+  int completedSeconds;
 
   ServingServiceBaseModel(
       this.storeUid,
@@ -22,6 +23,7 @@ class ServingServiceBaseModel extends SortableService {
       this.serviceDurationMinutes,
       this.createdAt,
       {bool isCanceled = false,
+      this.completedSeconds = 0,
       this.lastModifiedAt})
       : super(startAt, endAt, isCanceled: isCanceled);
 
