@@ -18,7 +18,7 @@ class ServingServiceBaseModel extends SortableService {
       this.orderUid,
       this.serviceUid,
       DateTime startAt,
-      DateTime endAt,
+      DateTime? endAt,
       this.serviceDurationMinutes,
       this.createdAt,
       {bool isCanceled = false,
