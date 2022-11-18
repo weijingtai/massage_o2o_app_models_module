@@ -13,6 +13,8 @@ class ServingServiceBaseModel extends SortableService {
   DateTime createdAt;
   DateTime? lastModifiedAt;
   int completedSeconds;
+  bool?
+      isReset; // when value is `null` or `false`, current service is normal, service is rest when value is `true`
 
   ServingServiceBaseModel(
       this.storeUid,
@@ -23,6 +25,7 @@ class ServingServiceBaseModel extends SortableService {
       this.serviceDurationMinutes,
       this.createdAt,
       {bool isCanceled = false,
+      this.isReset,
       this.completedSeconds = 0,
       this.lastModifiedAt})
       : super(startAt, endAt, isCanceled: isCanceled);

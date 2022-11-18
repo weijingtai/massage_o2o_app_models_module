@@ -16,6 +16,7 @@ ServingServiceBaseModel _$ServingServiceBaseModelFromJson(Map json) =>
       json['serviceDurationMinutes'] as int,
       DateTime.parse(json['createdAt'] as String),
       isCanceled: json['isCanceled'] as bool? ?? false,
+      isReset: json['isReset'] as bool?,
       completedSeconds: json['completedSeconds'] as int? ?? 0,
       lastModifiedAt: json['lastModifiedAt'] == null
           ? null
@@ -43,5 +44,6 @@ Map<String, dynamic> _$ServingServiceBaseModelToJson(
   val['createdAt'] = instance.createdAt.toIso8601String();
   writeNotNull('lastModifiedAt', instance.lastModifiedAt?.toIso8601String());
   val['completedSeconds'] = instance.completedSeconds;
+  writeNotNull('isReset', instance.isReset);
   return val;
 }
