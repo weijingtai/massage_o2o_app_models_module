@@ -15,6 +15,12 @@ LeaveServiceBaseModel _$LeaveServiceBaseModelFromJson(Map json) =>
           ? null
           : DateTime.parse(json['modifiedAt'] as String),
       isCanceled: json['isCanceled'] as bool? ?? false,
+      addSubMintes: (json['addSubMintes'] as List<dynamic>?)
+          ?.map((e) => e as int)
+          .toList(),
+      previousStartAt: json['previousStartAt'] == null
+          ? null
+          : DateTime.parse(json['previousStartAt'] as String),
     )..endAt =
         json['endAt'] == null ? null : DateTime.parse(json['endAt'] as String);
 
@@ -31,6 +37,8 @@ Map<String, dynamic> _$LeaveServiceBaseModelToJson(
   }
 
   writeNotNull('endAt', instance.endAt?.toIso8601String());
+  writeNotNull('addSubMintes', instance.addSubMintes);
+  writeNotNull('previousStartAt', instance.previousStartAt?.toIso8601String());
   val['isCanceled'] = instance.isCanceled;
   val['leaveDurationMinutes'] = instance.leaveDurationMinutes;
   val['createdAt'] = instance.createdAt.toIso8601String();

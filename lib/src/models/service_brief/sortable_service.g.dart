@@ -10,7 +10,12 @@ SortableService _$SortableServiceFromJson(Map json) => SortableService(
       DateTime.parse(json['startAt'] as String),
       json['endAt'] == null ? null : DateTime.parse(json['endAt'] as String),
       isCanceled: json['isCanceled'] as bool? ?? false,
-    );
+      addSubMintes: (json['addSubMintes'] as List<dynamic>?)
+          ?.map((e) => e as int)
+          .toList(),
+    )..previousStartAt = json['previousStartAt'] == null
+        ? null
+        : DateTime.parse(json['previousStartAt'] as String);
 
 Map<String, dynamic> _$SortableServiceToJson(SortableService instance) {
   final val = <String, dynamic>{
@@ -24,6 +29,8 @@ Map<String, dynamic> _$SortableServiceToJson(SortableService instance) {
   }
 
   writeNotNull('endAt', instance.endAt?.toIso8601String());
+  writeNotNull('addSubMintes', instance.addSubMintes);
+  writeNotNull('previousStartAt', instance.previousStartAt?.toIso8601String());
   val['isCanceled'] = instance.isCanceled;
   return val;
 }

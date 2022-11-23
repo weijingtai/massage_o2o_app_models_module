@@ -12,12 +12,22 @@ class AppointmentServiceBaseModel extends SortableService {
   DateTime createdAt;
   DateTime? lastModifiedAt;
 
-  AppointmentServiceBaseModel(this.storeUid, this.orderUid, this.serviceUid,
-      this.orderedStartAt, this.serviceDurationMinutes, this.createdAt,
-      {bool isCanceled = false, this.lastModifiedAt})
-      : super(orderedStartAt,
+  AppointmentServiceBaseModel(
+    this.storeUid,
+    this.orderUid,
+    this.serviceUid,
+    this.orderedStartAt,
+    this.serviceDurationMinutes,
+    this.createdAt, {
+    bool isCanceled = false,
+    this.lastModifiedAt,
+    List<int>? addSubMintes,
+    DateTime? previousStartAt,
+  }) : super(orderedStartAt,
             orderedStartAt.add(Duration(minutes: serviceDurationMinutes)),
-            isCanceled: isCanceled);
+            isCanceled: isCanceled,
+            addSubMintes: addSubMintes,
+            previousStartAt: previousStartAt);
 
   DateTime get orderedEndAt {
     return orderedStartAt.add(Duration(minutes: serviceDurationMinutes));

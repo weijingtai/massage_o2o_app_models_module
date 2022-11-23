@@ -21,6 +21,9 @@ ServingServiceBaseModel _$ServingServiceBaseModelFromJson(Map json) =>
       addSubMintes: (json['addSubMintes'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
+      previousStartAt: json['previousStartAt'] == null
+          ? null
+          : DateTime.parse(json['previousStartAt'] as String),
       lastModifiedAt: json['lastModifiedAt'] == null
           ? null
           : DateTime.parse(json['lastModifiedAt'] as String),
@@ -39,6 +42,8 @@ Map<String, dynamic> _$ServingServiceBaseModelToJson(
   }
 
   writeNotNull('endAt', instance.endAt?.toIso8601String());
+  writeNotNull('addSubMintes', instance.addSubMintes);
+  writeNotNull('previousStartAt', instance.previousStartAt?.toIso8601String());
   val['isCanceled'] = instance.isCanceled;
   val['storeUid'] = instance.storeUid;
   val['orderUid'] = instance.orderUid;
@@ -48,6 +53,5 @@ Map<String, dynamic> _$ServingServiceBaseModelToJson(
   writeNotNull('lastModifiedAt', instance.lastModifiedAt?.toIso8601String());
   val['completedSeconds'] = instance.completedSeconds;
   writeNotNull('isReset', instance.isReset);
-  writeNotNull('addSubMintes', instance.addSubMintes);
   return val;
 }

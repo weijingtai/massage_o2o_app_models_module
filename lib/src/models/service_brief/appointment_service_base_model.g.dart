@@ -18,6 +18,12 @@ AppointmentServiceBaseModel _$AppointmentServiceBaseModelFromJson(Map json) =>
       lastModifiedAt: json['lastModifiedAt'] == null
           ? null
           : DateTime.parse(json['lastModifiedAt'] as String),
+      addSubMintes: (json['addSubMintes'] as List<dynamic>?)
+          ?.map((e) => e as int)
+          .toList(),
+      previousStartAt: json['previousStartAt'] == null
+          ? null
+          : DateTime.parse(json['previousStartAt'] as String),
     )
       ..startAt = DateTime.parse(json['startAt'] as String)
       ..endAt = json['endAt'] == null
@@ -37,6 +43,8 @@ Map<String, dynamic> _$AppointmentServiceBaseModelToJson(
   }
 
   writeNotNull('endAt', instance.endAt?.toIso8601String());
+  writeNotNull('addSubMintes', instance.addSubMintes);
+  writeNotNull('previousStartAt', instance.previousStartAt?.toIso8601String());
   val['isCanceled'] = instance.isCanceled;
   val['storeUid'] = instance.storeUid;
   val['orderUid'] = instance.orderUid;
