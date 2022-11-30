@@ -1,24 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sortable_service.dart';
+part of 'unavailable_service_base_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-SortableService _$SortableServiceFromJson(Map json) => SortableService(
+UnavailableServiceBaseModel _$UnavailableServiceBaseModelFromJson(Map json) =>
+    UnavailableServiceBaseModel(
       const DatetimeUTCISOJsonToLocalConvetor()
           .fromJson(json['startAt'] as String),
-      _$JsonConverterFromJson<String, DateTime>(
-          json['endAt'], const DatetimeUTCISOJsonToLocalConvetor().fromJson),
+      json['unavailableDurationMinutes'] as int,
       guid: json['guid'] as String,
       createdAt: const DatetimeUTCISOJsonToLocalConvetor()
           .fromJson(json['createdAt'] as String),
-      type: $enumDecode(_$ServiceBriefEnumEnumMap, json['type']),
-      canceledAt: _$JsonConverterFromJson<String, DateTime>(json['canceledAt'],
-          const DatetimeUTCISOJsonToLocalConvetor().fromJson),
       lastModifiedAt: _$JsonConverterFromJson<String, DateTime>(
           json['lastModifiedAt'],
+          const DatetimeUTCISOJsonToLocalConvetor().fromJson),
+      canceledAt: _$JsonConverterFromJson<String, DateTime>(json['canceledAt'],
           const DatetimeUTCISOJsonToLocalConvetor().fromJson),
       addSubMinutes: (json['addSubMinutes'] as List<dynamic>?)
           ?.map((e) => e as int)
@@ -26,9 +25,13 @@ SortableService _$SortableServiceFromJson(Map json) => SortableService(
       previousStartAt: _$JsonConverterFromJson<String, DateTime>(
           json['previousStartAt'],
           const DatetimeUTCISOJsonToLocalConvetor().fromJson),
-    );
+    )
+      ..type = $enumDecode(_$ServiceBriefEnumEnumMap, json['type'])
+      ..endAt = _$JsonConverterFromJson<String, DateTime>(
+          json['endAt'], const DatetimeUTCISOJsonToLocalConvetor().fromJson);
 
-Map<String, dynamic> _$SortableServiceToJson(SortableService instance) {
+Map<String, dynamic> _$UnavailableServiceBaseModelToJson(
+    UnavailableServiceBaseModel instance) {
   final val = <String, dynamic>{
     'type': _$ServiceBriefEnumEnumMap[instance.type]!,
     'guid': instance.guid,
@@ -61,6 +64,7 @@ Map<String, dynamic> _$SortableServiceToJson(SortableService instance) {
           const DatetimeUTCISOJsonToLocalConvetor().toJson));
   val['createdAt'] =
       const DatetimeUTCISOJsonToLocalConvetor().toJson(instance.createdAt);
+  val['unavailableDurationMinutes'] = instance.unavailableDurationMinutes;
   return val;
 }
 

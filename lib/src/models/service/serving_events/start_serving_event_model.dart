@@ -23,5 +23,6 @@ class StartServingEventModel extends ServingEventModel {
         );
   factory StartServingEventModel.fromJson(Map<String, dynamic> json) =>
       _$StartServingEventModelFromJson(json);
+  @override
   Map<String, dynamic> toJson() => _$StartServingEventModelToJson(this);
 }

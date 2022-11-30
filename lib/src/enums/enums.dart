@@ -15,3 +15,5 @@ export "service_event_type_enum.dart";
 export "serving_event_type_enum.dart";
 export "others_event_type_enum.dart";
 export "appointment_event_type_enum.dart";
+
+export 'service_brief_enum.dart';

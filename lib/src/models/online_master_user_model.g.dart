@@ -30,7 +30,7 @@ OnlineMasterUserModel _$OnlineMasterUserModelFromJson(Map json) =>
           : ServingServiceBaseModel.fromJson(
               Map<String, dynamic>.from(json['servingService'] as Map)),
       leavingList: (json['leavingList'] as List<dynamic>?)
-          ?.map((e) => LeaveServiceBaseModel.fromJson(
+          ?.map((e) => UnavailableServiceBaseModel.fromJson(
               Map<String, dynamic>.from(e as Map)))
           .toList(),
     );

@@ -4,6 +4,7 @@ import './location/master_location_model.dart';
 import 'location/coordinate.dart';
 import 'master_user_model.dart';
 import './service_brief/service_brief.dart';
+import 'service_brief/unavailable_service_base_model.dart';
 part 'online_master_user_model.g.dart';
 
 @JsonSerializable()
@@ -17,7 +18,7 @@ class OnlineMasterUserModel {
   Coordinate? location;
   ServingServiceBaseModel? servingService;
   List<AppointmentServiceBaseModel>? appointments;
-  List<LeaveServiceBaseModel>? leavingList;
+  List<UnavailableServiceBaseModel>? leavingList;
 
   OnlineMasterUserModel(this.baseInfo, this.lastLoginAt, this.onlineStatus,
       {this.lastModifiedAt,
