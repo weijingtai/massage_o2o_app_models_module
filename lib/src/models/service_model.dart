@@ -86,6 +86,7 @@ class ServiceModel {
 
   ServiceModel({
     required this.guid,
+    required this.hostUid,
     required this.orderGuid,
     required this.seqInOrder,
     required this.creatorUid,

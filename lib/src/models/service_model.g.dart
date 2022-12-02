@@ -8,6 +8,7 @@ part of 'service_model.dart';
 
 ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
       guid: json['guid'] as String,
+      hostUid: json['hostUid'] as String,
       orderGuid: json['orderGuid'] as String,
       seqInOrder: json['seqInOrder'] as int,
       creatorUid: json['creatorUid'] as String,
@@ -46,7 +47,7 @@ ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
       canceledAt: json['canceledAt'] == null
           ? null
           : DateTime.parse(json['canceledAt'] as String),
-    )..hostUid = json['hostUid'] as String;
+    );
 
 Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
   final val = <String, dynamic>{
