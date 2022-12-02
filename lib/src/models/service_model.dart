@@ -12,6 +12,7 @@ part 'service_model.g.dart';
 class ServiceModel {
   String guid;
   String orderGuid;
+  String hostUid;
   int seqInOrder;
   String creatorUid;
 

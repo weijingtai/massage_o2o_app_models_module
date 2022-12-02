@@ -46,12 +46,13 @@ ServiceModel _$ServiceModelFromJson(Map json) => ServiceModel(
       canceledAt: json['canceledAt'] == null
           ? null
           : DateTime.parse(json['canceledAt'] as String),
-    );
+    )..hostUid = json['hostUid'] as String;
 
 Map<String, dynamic> _$ServiceModelToJson(ServiceModel instance) {
   final val = <String, dynamic>{
     'guid': instance.guid,
     'orderGuid': instance.orderGuid,
+    'hostUid': instance.hostUid,
     'seqInOrder': instance.seqInOrder,
     'creatorUid': instance.creatorUid,
   };
