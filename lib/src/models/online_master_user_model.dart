@@ -16,17 +16,17 @@ class OnlineMasterUserModel {
   MasterServiceStatusEnum? masterServiceStatus;
   DateTime? lastModifiedAt;
   Coordinate? location;
-  ServingServiceBaseModel? servingService;
+  ServingServiceBaseModel? serving;
   List<AppointmentServiceBaseModel>? appointments;
-  List<UnavailableServiceBaseModel>? leavingList;
+  List<UnavailableServiceBaseModel>? unavailables;
 
   OnlineMasterUserModel(this.baseInfo, this.lastLoginAt, this.onlineStatus,
       {this.lastModifiedAt,
       this.location,
       this.masterServiceStatus,
       this.appointments,
-      this.servingService,
-      this.leavingList});
+      this.serving,
+      this.unavailables});
 
   factory OnlineMasterUserModel.fromJson(Map<String, dynamic> json) =>
       _$OnlineMasterUserModelFromJson(json);
@@ -36,15 +36,15 @@ class OnlineMasterUserModel {
     return baseInfo.uid;
   }
 
-  bool get isEmptyLeavingList {
-    if (leavingList == null) {
+  bool get isEmptyUnavailables {
+    if (unavailables == null) {
       return true;
     }
-    return leavingList!.isEmpty;
+    return unavailables!.isEmpty;
   }
 
-  bool get isNotEmptyLeavingList {
-    return !isEmptyLeavingList;
+  bool get isNotEmptyUnavailables {
+    return !isEmptyUnavailables;
   }
 
   bool get isEmptyAppointments {

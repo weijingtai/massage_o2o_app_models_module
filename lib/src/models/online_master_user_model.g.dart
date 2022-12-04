@@ -25,11 +25,11 @@ OnlineMasterUserModel _$OnlineMasterUserModelFromJson(Map json) =>
           ?.map((e) => AppointmentServiceBaseModel.fromJson(
               Map<String, dynamic>.from(e as Map)))
           .toList(),
-      servingService: json['servingService'] == null
+      serving: json['serving'] == null
           ? null
           : ServingServiceBaseModel.fromJson(
-              Map<String, dynamic>.from(json['servingService'] as Map)),
-      leavingList: (json['leavingList'] as List<dynamic>?)
+              Map<String, dynamic>.from(json['serving'] as Map)),
+      unavailables: (json['unavailables'] as List<dynamic>?)
           ?.map((e) => UnavailableServiceBaseModel.fromJson(
               Map<String, dynamic>.from(e as Map)))
           .toList(),
@@ -53,11 +53,11 @@ Map<String, dynamic> _$OnlineMasterUserModelToJson(
       _$MasterServiceStatusEnumEnumMap[instance.masterServiceStatus]);
   writeNotNull('lastModifiedAt', instance.lastModifiedAt?.toIso8601String());
   writeNotNull('location', instance.location?.toJson());
-  writeNotNull('servingService', instance.servingService?.toJson());
+  writeNotNull('serving', instance.serving?.toJson());
   writeNotNull(
       'appointments', instance.appointments?.map((e) => e.toJson()).toList());
   writeNotNull(
-      'leavingList', instance.leavingList?.map((e) => e.toJson()).toList());
+      'unavailables', instance.unavailables?.map((e) => e.toJson()).toList());
   return val;
 }
 
