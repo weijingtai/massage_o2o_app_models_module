@@ -10,14 +10,13 @@ class AppointmentServiceBaseModel extends SortableService {
   String storeUid;
   String orderUid;
   String serviceUid;
-  DateTime orderedStartAt;
   int serviceDurationMinutes;
 
   AppointmentServiceBaseModel({
     required this.storeUid,
     required this.orderUid,
     required this.serviceUid,
-    required this.orderedStartAt,
+    required DateTime orderedStartAt,
     required this.serviceDurationMinutes,
     required String guid,
     required DateTime createdAt,
@@ -34,6 +33,9 @@ class AppointmentServiceBaseModel extends SortableService {
             lastModifiedAt: lastModifiedAt,
             addSubMinutes: addSubMinutes,
             previousStartAt: previousStartAt);
+  DateTime get orderedStartAt {
+    return startAt;
+  }
 
   DateTime get orderedEndAt {
     return orderedStartAt.add(Duration(minutes: serviceDurationMinutes));

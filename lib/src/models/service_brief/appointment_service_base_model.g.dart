@@ -72,9 +72,9 @@ Map<String, dynamic> _$AppointmentServiceBaseModelToJson(
   val['storeUid'] = instance.storeUid;
   val['orderUid'] = instance.orderUid;
   val['serviceUid'] = instance.serviceUid;
+  val['serviceDurationMinutes'] = instance.serviceDurationMinutes;
   val['orderedStartAt'] =
       const DatetimeUTCISOJsonToLocalConvetor().toJson(instance.orderedStartAt);
-  val['serviceDurationMinutes'] = instance.serviceDurationMinutes;
   return val;
 }
 
