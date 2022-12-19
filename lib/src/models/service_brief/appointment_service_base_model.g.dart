@@ -11,8 +11,8 @@ AppointmentServiceBaseModel _$AppointmentServiceBaseModelFromJson(Map json) =>
       storeUid: json['storeUid'] as String,
       orderUid: json['orderUid'] as String,
       serviceUid: json['serviceUid'] as String,
-      orderedStartAt: const DatetimeUTCISOJsonToLocalConvetor()
-          .fromJson(json['orderedStartAt'] as String),
+      startAt: const DatetimeUTCISOJsonToLocalConvetor()
+          .fromJson(json['startAt'] as String),
       serviceDurationMinutes: json['serviceDurationMinutes'] as int,
       guid: json['guid'] as String,
       createdAt: const DatetimeUTCISOJsonToLocalConvetor()
@@ -30,8 +30,6 @@ AppointmentServiceBaseModel _$AppointmentServiceBaseModelFromJson(Map json) =>
           const DatetimeUTCISOJsonToLocalConvetor().fromJson),
     )
       ..type = $enumDecode(_$ServiceBriefEnumEnumMap, json['type'])
-      ..startAt = const DatetimeUTCISOJsonToLocalConvetor()
-          .fromJson(json['startAt'] as String)
       ..endAt = _$JsonConverterFromJson<String, DateTime>(
           json['endAt'], const DatetimeUTCISOJsonToLocalConvetor().fromJson);
 
@@ -73,8 +71,6 @@ Map<String, dynamic> _$AppointmentServiceBaseModelToJson(
   val['orderUid'] = instance.orderUid;
   val['serviceUid'] = instance.serviceUid;
   val['serviceDurationMinutes'] = instance.serviceDurationMinutes;
-  val['orderedStartAt'] =
-      const DatetimeUTCISOJsonToLocalConvetor().toJson(instance.orderedStartAt);
   return val;
 }
 
