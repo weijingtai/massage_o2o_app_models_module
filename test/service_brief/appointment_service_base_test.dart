@@ -7,7 +7,7 @@ void main() {
       storeUid: "AppointmentServiceBaseModel_storeUid",
       orderUid: "AppointmentServiceBaseModel_orderUid",
       serviceUid: "AppointmentServiceBaseModel_serviceUid",
-      orderedStartAt: DateTime.now(),
+      startAt: DateTime.now(),
       serviceDurationMinutes: 90,
       guid: "AppointmentServiceBaseModel_guid",
       createdAt: DateTime.now(),
