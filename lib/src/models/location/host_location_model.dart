@@ -6,9 +6,11 @@ part 'host_location_model.g.dart';
 
 @JsonSerializable()
 class HostLocationModel {
+  String uid;
   Coordinate coordinate;
   Address address;
-  HostLocationModel({required this.coordinate, required this.address});
+  HostLocationModel(
+      {required this.uid, required this.coordinate, required this.address});
 
   factory HostLocationModel.fromJson(Map<String, dynamic> json) =>
       _$HostLocationModelFromJson(json);
