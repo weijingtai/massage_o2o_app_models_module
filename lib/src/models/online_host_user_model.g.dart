@@ -6,8 +6,8 @@ part of 'online_host_user_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-OnlineMasterUserModel _$OnlineMasterUserModelFromJson(Map json) =>
-    OnlineMasterUserModel(
+OnlineHostUserModel _$OnlineHostUserModelFromJson(Map json) =>
+    OnlineHostUserModel(
       HostUserModel.fromJson(
           Map<String, dynamic>.from(json['baseInfo'] as Map)),
       DateTime.parse(json['lastLoginAt'] as String),
@@ -16,8 +16,7 @@ OnlineMasterUserModel _$OnlineMasterUserModelFromJson(Map json) =>
           : DateTime.parse(json['lastModifiedAt'] as String),
     );
 
-Map<String, dynamic> _$OnlineMasterUserModelToJson(
-    OnlineMasterUserModel instance) {
+Map<String, dynamic> _$OnlineHostUserModelToJson(OnlineHostUserModel instance) {
   final val = <String, dynamic>{
     'baseInfo': instance.baseInfo.toJson(),
     'lastLoginAt': instance.lastLoginAt.toIso8601String(),

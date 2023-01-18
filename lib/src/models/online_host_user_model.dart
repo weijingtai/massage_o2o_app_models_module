@@ -9,17 +9,17 @@ import 'service_brief/unavailable_service_base_model.dart';
 part 'online_host_user_model.g.dart';
 
 @JsonSerializable()
-class OnlineMasterUserModel {
+class OnlineHostUserModel {
   late HostUserModel baseInfo;
   late DateTime lastLoginAt;
 
   DateTime? lastModifiedAt;
 
-  OnlineMasterUserModel(this.baseInfo, this.lastLoginAt, {this.lastModifiedAt});
+  OnlineHostUserModel(this.baseInfo, this.lastLoginAt, {this.lastModifiedAt});
 
-  factory OnlineMasterUserModel.fromJson(Map<String, dynamic> json) =>
-      _$OnlineMasterUserModelFromJson(json);
-  Map<String, dynamic> toJson() => _$OnlineMasterUserModelToJson(this);
+  factory OnlineHostUserModel.fromJson(Map<String, dynamic> json) =>
+      _$OnlineHostUserModelFromJson(json);
+  Map<String, dynamic> toJson() => _$OnlineHostUserModelToJson(this);
 
   String get uid {
     return baseInfo.uid;
