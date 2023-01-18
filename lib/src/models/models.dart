@@ -22,7 +22,6 @@ export 'base_user_info.dart';
 export 'host_user_model.dart';
 export 'master_user_model.dart';
 export 'online_master_user_model.dart';
-export 'online_host_user_model.dart';
 export 'order_assign_notification_model.dart';
 export 'order_model.dart';
 // export 'service_event_unit.dart';
@@ -39,8 +38,6 @@ export 'service/service_event_model.dart';
 
 export 'location/address.dart';
 export 'location/coordinate.dart';
-export 'location/location.dart';
-
 export 'location/host_location_model.dart';
 export 'location/master_location_model.dart';
 export 'location/distance_model.dart';
