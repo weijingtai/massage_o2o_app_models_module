@@ -7,13 +7,15 @@ part of 'host_user_model.dart';
 // **************************************************************************
 
 HostUserModel _$HostUserModelFromJson(Map json) => HostUserModel(
-      json['uid'] as String,
-      json['displayName'] as String,
-      json['photoURL'] as String,
-      json['alphabetName'] as String,
-      json['phoneNumber'] as String,
-      json['username'] as String,
-      json['orderPrefix'] as String,
+      uid: json['uid'] as String,
+      displayName: json['displayName'] as String,
+      photoURL: json['photoURL'] as String,
+      alphabetName: json['alphabetName'] as String,
+      phoneNumber: json['phoneNumber'] as String,
+      username: json['username'] as String,
+      location:
+          Location.fromJson(Map<String, dynamic>.from(json['location'] as Map)),
+      orderPrefix: json['orderPrefix'] as String,
     );
 
 Map<String, dynamic> _$HostUserModelToJson(HostUserModel instance) {
@@ -33,5 +35,6 @@ Map<String, dynamic> _$HostUserModelToJson(HostUserModel instance) {
   val['phoneNumber'] = instance.phoneNumber;
   val['username'] = instance.username;
   val['orderPrefix'] = instance.orderPrefix;
+  val['location'] = instance.location.toJson();
   return val;
 }
