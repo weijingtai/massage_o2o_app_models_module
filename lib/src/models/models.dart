@@ -23,6 +23,7 @@ export 'host_user_model.dart';
 export 'master_user_model.dart';
 export 'online_master_user_model.dart';
 export 'online_host_user_model.dart';
+export 'location/user_location_model.dart';
 export 'order_assign_notification_model.dart';
 export 'order_model.dart';
 // export 'service_event_unit.dart';
