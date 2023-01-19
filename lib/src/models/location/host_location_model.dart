@@ -2,15 +2,17 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'address.dart';
 import 'coordinate.dart';
+import 'user_location_model.dart';
 part 'host_location_model.g.dart';
 
 @JsonSerializable()
-class HostLocationModel {
-  String uid;
-  Coordinate coordinate;
+class HostLocationModel extends UserLocationModel {
   Address address;
   HostLocationModel(
-      {required this.uid, required this.coordinate, required this.address});
+      {required String uid,
+      required Coordinate coordinate,
+      required this.address})
+      : super(uid: uid, coordinate: coordinate);
 
   factory HostLocationModel.fromJson(Map<String, dynamic> json) =>
       _$HostLocationModelFromJson(json);
