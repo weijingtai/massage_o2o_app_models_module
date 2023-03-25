@@ -12,7 +12,7 @@ dependencies:
 
   # tools
   equatable: ^2.0.5
-  intl: ^0.18.0
+  intl: ^0.17.0
   freezed: ^2.3.2
 
 dev_dependencies:
